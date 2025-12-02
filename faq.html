@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions (FAQ) - Veo 3 Script Writer | RAOGY</title>
+    <meta name="description" content="Find answers to common questions about Veo 3 Script Writer. Learn about features, usage, pricing, technical requirements, and best practices for AI video script generation.">
+    <meta name="keywords" content="Veo 3 FAQ, script writer questions, AI video help, tutorial support, video script guide">
+    <meta name="author" content="RAOGY">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.avioncitojuego.com/faq">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="FAQ - Veo 3 Script Writer">
+    <meta property="og:description" content="Find answers to common questions about using Veo 3 Script Writer for AI video generation.">
+    <meta property="og:url" content="https://www.avioncitojuego.com/faq">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+    
+    <style>
+        .faq-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        .faq-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .faq-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+        
+        .faq-search {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .faq-search input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-search input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .faq-search i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+        
+        .faq-categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        
+        .faq-category-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #6b7280;
+        }
+        
+        .faq-category-btn:hover,
+        .faq-category-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .faq-section {
+            margin-bottom: 50px;
+        }
+        
+        .faq-section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            color: #1f2937;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .faq-section-title i {
+            color: #667eea;
+        }
+        
+        .faq-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            user-select: none;
+        }
+        
+        .faq-question h3 {
+            font-size: 1.1rem;
+            color: #1f2937;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .faq-toggle {
+            font-size: 1.2rem;
+            color: #667eea;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 1000px;
+        }
+        
+        .faq-answer p {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer ul, .faq-answer ol {
+            color: #4b5563;
+            line-height: 1.7;
+            padding-left: 25px;
+            margin: 10px 0;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
+        
+        .faq-answer strong {
+            color: #1f2937;
+        }
+        
+        .faq-answer code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #667eea;
+        }
+        
+        .faq-tip {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+        
+        .faq-tip strong {
+            color: #1e40af;
+        }
+        
+        .faq-warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+        
+        .faq-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .faq-cta h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .faq-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+        
+        .faq-cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .faq-cta-btn {
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .faq-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .faq-cta-btn.secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-hero p {
+                font-size: 1rem;
+            }
+            
+            .faq-section-title {
+                font-size: 1.5rem;
+            }
+            
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+            
+            .faq-categories {
+                justify-content: flex-start;
+            }
+            
+            .faq-cta-buttons {
+                flex-direction: column;
+            }
+            
+            .faq-cta-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Veo 3 Script Writer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Veo 3 Script Writer is an AI-powered tool that transforms your scripts into professional, Veo 3-optimized prompts. It analyzes your content, detects dialogue, generates visual descriptions, and maintains character consistency across all scenes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Veo 3 Script Writer free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Veo 3 Script Writer is completely free to use. All core features including script analysis, dialogue detection, visual prompt generation, and character consistency are available at no cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the 95-character dialogue limit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google's Veo 3 requires all dialogue to be 95 characters or less per scene. Our tool automatically splits longer dialogues into multiple scenes while maintaining narrative flow and character consistency."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the dialogue detection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our AI achieves 95%+ accuracy in detecting dialogue when scripts use clear indicators like quotation marks, 'says', 'replies', 'asks', or similar dialogue tags. The more clearly formatted your script, the better the detection."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>
+                    <img src="/images/logo.png" alt="Veo 3 Script Writer" style="height: 32px; margin-right: 6px; vertical-align: middle;">
+                    <a href="/" style="text-decoration: none; color: inherit;">Veo 3 Script Writer</a>
+                </h1>
+                <span class="by-raogy">by RAOGY</span>
+            </div>
+            <div class="header-controls">
+                <a href="/" class="header-link">
+                    <i class="fas fa-home"></i> <span>Home</span>
+                </a>
+                <a href="/blog" class="header-link">
+                    <i class="fas fa-blog"></i> <span>Blog</span>
+                </a>
+                <a href="/tutorials" class="header-link">
+                    <i class="fas fa-graduation-cap"></i> <span>Tutorials</span>
+                </a>
+                <a href="/about" class="header-link">
+                    <i class="fas fa-info-circle"></i> <span>About</span>
+                </a>
+                <a href="/contact" class="header-link">
+                    <i class="fas fa-envelope"></i> <span>Contact</span>
+                </a>
+                <a href="/faq" class="header-link">
+                    <i class="fas fa-question-circle"></i> <span>FAQ</span>
+                </a>
+                <a href="/glossary" class="header-link">
+                    <i class="fas fa-book"></i> <span>Glossary</span>
+                </a>
+                <a href="/resources" class="header-link">
+                    <i class="fas fa-toolbox"></i> <span>Resources</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="faq-hero">
+            <h1><i class="fas fa-question-circle"></i> Frequently Asked Questions</h1>
+            <p>Find answers to common questions about Veo 3 Script Writer, features, usage, and best practices</p>
+        </section>
+
+        <!-- Main Content -->
+        <main class="faq-container">
+            <!-- Search Bar -->
+            <div class="faq-search">
+                <input type="text" id="faqSearch" placeholder="Search for answers...">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="faq-categories">
+                <button class="faq-category-btn active" data-category="all">
+                    <i class="fas fa-th"></i> All Questions
+                </button>
+                <button class="faq-category-btn" data-category="getting-started">
+                    <i class="fas fa-play-circle"></i> Getting Started
+                </button>
+                <button class="faq-category-btn" data-category="features">
+                    <i class="fas fa-cogs"></i> Features
+                </button>
+                <button class="faq-category-btn" data-category="technical">
+                    <i class="fas fa-laptop-code"></i> Technical
+                </button>
+                <button class="faq-category-btn" data-category="troubleshooting">
+                    <i class="fas fa-tools"></i> Troubleshooting
+                </button>
+            </div>
+
+            <!-- Getting Started Section -->
+            <section class="faq-section" data-category="getting-started">
+                <h2 class="faq-section-title">
+                    <i class="fas fa-play-circle"></i>
+                    Getting Started
+                </h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is Veo 3 Script Writer?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Veo 3 Script Writer is an AI-powered tool designed specifically for Google's Veo 3 video generator. It transforms your raw scripts into professional, optimized prompts that Veo 3 can use to create high-quality videos.</p>
+                        <p><strong>Key features include:</strong></p>
+                        <ul>
+                            <li>Automatic dialogue detection and scene splitting</li>
+                            <li>Character consistency across all scenes</li>
+                            <li>Cinematic visual descriptions</li>
+                            <li>95-character dialogue optimization</li>
+                            <li>Professional camera angles and movements</li>
+                            <li>Environment and lighting descriptions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I use Veo 3 Script Writer?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Using the tool is simple and requires just 3 steps:</p>
+                        <ol>
+                            <li><strong>Paste your script:</strong> Copy and paste your script into the text area on the homepage</li>
+                            <li><strong>Configure settings (optional):</strong> Adjust transition styles, add character descriptions, or set visual preferences</li>
+                            <li><strong>Generate:</strong> Click "Generate Script" and the AI will create your optimized Veo 3 prompts</li>
+                        </ol>
+                        <div class="faq-tip">
+                            <strong>💡 Pro Tip:</strong> For best results, use clear dialogue indicators like quotation marks or words like "says", "replies", "asks" in your script.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is Veo 3 Script Writer free to use?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Yes, absolutely!</strong> Veo 3 Script Writer is completely free to use with no hidden costs, subscriptions, or premium tiers.</p>
+                        <p><strong>All features are included:</strong></p>
+                        <ul>
+                            <li>Unlimited script generations</li>
+                            <li>Full character consistency features</li>
+                            <li>All export options (copy, download, JSON)</li>
+                            <li>Advanced settings and customization</li>
+                            <li>No watermarks or limitations</li>
+                        </ul>
+                        <p>We believe powerful creative tools should be accessible to everyone, from independent creators to professional studios.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do I need a Veo 3 account to use this tool?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>No,</strong> you don't need a Veo 3 account to use our Script Writer. The tool is completely independent and can be used by anyone.</p>
+                        <p>However, to actually generate videos from the scripts, you will need:</p>
+                        <ul>
+                            <li>Access to Google's Veo 3 platform (when available)</li>
+                            <li>Or access to Veo 3 through Google AI Studio</li>
+                            <li>Or through partner platforms that integrate Veo 3</li>
+                        </ul>
+                        <p>Our tool prepares your scripts, and you then use those optimized prompts in Veo 3 to create your videos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What file formats are supported?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Input:</strong> You can paste any text-based script directly into the tool. Common formats include:</p>
+                        <ul>
+                            <li>Plain text (.txt)</li>
+                            <li>Word documents (copy and paste)</li>
+                            <li>Google Docs (copy and paste)</li>
+                            <li>Screenplay format</li>
+                            <li>Informal script notes</li>
+                        </ul>
+                        <p><strong>Output:</strong> Generated scripts can be exported as:</p>
+                        <ul>
+                            <li>Text (copy to clipboard)</li>
+                            <li>.txt file download</li>
+                            <li>JSON format for developers</li>
+                            <li>Dialogue-only text</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="faq-section" data-category="features">
+                <h2 class="faq-section-title">
+                    <i class="fas fa-cogs"></i>
+                    Features & Capabilities
+                </h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is the 95-character dialogue limit?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Google's Veo 3 has a technical limitation: <strong>dialogue in each scene must be 95 characters or less</strong>. This is a hard limit set by Veo 3, not our tool.</p>
+                        <p><strong>How our tool handles this:</strong></p>
+                        <ul>
+                            <li>Automatically detects dialogues longer than 95 characters</li>
+                            <li>Intelligently splits them into multiple scenes</li>
+                            <li>Maintains narrative flow and context</li>
+                            <li>Preserves character consistency across split scenes</li>
+                            <li>Ensures proper pacing and transitions</li>
+                        </ul>
+                        <div class="faq-tip">
+                            <strong>💡 Example:</strong> A 150-character dialogue like "I need to tell you something important about what happened yesterday. It's been weighing on my mind and I think you deserve to know the truth" would be split into two scenes while maintaining the conversation flow.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How does dialogue detection work?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our AI uses advanced natural language processing to identify dialogue in your script with 95%+ accuracy.</p>
+                        <p><strong>Detection methods:</strong></p>
+                        <ul>
+                            <li><strong>Quotation marks:</strong> "I love this!" is detected as dialogue</li>
+                            <li><strong>Dialogue verbs:</strong> John says, Sarah replies, Mike asks, etc.</li>
+                            <li><strong>Context analysis:</strong> AI understands conversation patterns</li>
+                            <li><strong>Character attribution:</strong> Automatically assigns dialogue to characters</li>
+                        </ul>
+                        <p><strong>Best practices for accurate detection:</strong></p>
+                        <ol>
+                            <li>Use quotation marks around spoken words</li>
+                            <li>Include character names before dialogue</li>
+                            <li>Use clear dialogue indicators (says, replies, asks)</li>
+                            <li>Separate action from dialogue with clear formatting</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is character consistency and why is it important?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Character consistency means your characters look the same across all scenes in your video. This is crucial for professional-looking content.</p>
+                        <p><strong>Why Veo 3 needs this:</strong></p>
+                        <ul>
+                            <li>Veo 3 generates each scene independently</li>
+                            <li>Without consistency prompts, characters can change appearance</li>
+                            <li>Viewers notice inconsistencies (different clothes, hair, features)</li>
+                            <li>Professional videos require visual continuity</li>
+                        </ul>
+                        <p><strong>How our tool ensures consistency:</strong></p>
+                        <ul>
+                            <li>Creates detailed character descriptions once</li>
+                            <li>Applies them to every scene automatically</li>
+                            <li>Includes physical features, clothing, and distinctive traits</li>
+                            <li>Maintains lighting and environment consistency</li>
+                            <li>Generates "character prompt" section for Veo 3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I customize character descriptions?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Yes!</strong> You have full control over character descriptions through the Settings panel.</p>
+                        <p><strong>Customization options:</strong></p>
+                        <ul>
+                            <li><strong>Manual descriptions:</strong> Write detailed character descriptions yourself</li>
+                            <li><strong>AI generation:</strong> Let the AI create descriptions from your script</li>
+                            <li><strong>Mixed approach:</strong> AI generates base, you refine</li>
+                        </ul>
+                        <p><strong>What to include in character descriptions:</strong></p>
+                        <ul>
+                            <li>Age and gender</li>
+                            <li>Physical appearance (height, build, hair, eyes)</li>
+                            <li>Clothing and style</li>
+                            <li>Distinctive features or accessories</li>
+                            <li>Personality traits that affect appearance</li>
+                        </ul>
+                        <div class="faq-tip">
+                            <strong>💡 Example:</strong> "Sarah: 28-year-old woman, athletic build, shoulder-length auburn hair, green eyes, wearing a navy business suit with white blouse, confident posture, carries a leather briefcase"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What export options are available?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We provide multiple export formats to fit different workflows:</p>
+                        <p><strong>1. Copy All (Full Script)</strong></p>
+                        <ul>
+                            <li>Complete script with all scenes</li>
+                            <li>Character consistency section</li>
+                            <li>Environment descriptions</li>
+                            <li>Camera directions and visual prompts</li>
+                            <li>All dialogue optimized for Veo 3</li>
+                        </ul>
+                        <p><strong>2. Copy Dialogues Only</strong></p>
+                        <ul>
+                            <li>Just the dialogue lines with scene numbers</li>
+                            <li>Perfect for voice-over recording scripts</li>
+                            <li>Clean format for teleprompters</li>
+                        </ul>
+                        <p><strong>3. Download (.txt file)</strong></p>
+                        <ul>
+                            <li>Formatted text file with complete script</li>
+                            <li>Includes all sections and formatting</li>
+                            <li>Easy to share with team members</li>
+                        </ul>
+                        <p><strong>4. JSON Format (Developers)</strong></p>
+                        <ul>
+                            <li>Structured data format</li>
+                            <li>For custom integrations and workflows</li>
+                            <li>Programmatic access to all scene data</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How many scenes can I generate at once?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Maximum: 38 dialogue scenes per generation</strong></p>
+                        <p>This limit exists for two reasons:</p>
+                        <ol>
+                            <li><strong>Technical performance:</strong> Ensures fast, reliable generation</li>
+                            <li><strong>Practical video length:</strong> 38 scenes = 5-6 minute video (perfect for most content)</li>
+                        </ol>
+                        <p><strong>For longer videos:</strong></p>
+                        <ul>
+                            <li>Split your script into multiple parts</li>
+                            <li>Generate each part separately</li>
+                            <li>Use the same character descriptions for consistency</li>
+                            <li>Combine outputs in your video editing software</li>
+                        </ul>
+                        <div class="faq-warning">
+                            <strong>⚠️ Note:</strong> If your script has more than 38 dialogues, the tool will notify you and ask you to reduce or split the content.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Section -->
+            <section class="faq-section" data-category="technical">
+                <h2 class="faq-section-title">
+                    <i class="fas fa-laptop-code"></i>
+                    Technical Questions
+                </h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What browsers are supported?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Veo 3 Script Writer works on all modern web browsers:</p>
+                        <p><strong>Fully Supported:</strong></p>
+                        <ul>
+                            <li>Google Chrome (recommended) - version 90+</li>
+                            <li>Mozilla Firefox - version 88+</li>
+                            <li>Microsoft Edge - version 90+</li>
+                            <li>Safari - version 14+</li>
+                            <li>Opera - version 76+</li>
+                        </ul>
+                        <p><strong>Mobile Browsers:</strong></p>
+                        <ul>
+                            <li>Chrome Mobile (Android)</li>
+                            <li>Safari Mobile (iOS)</li>
+                            <li>Samsung Internet</li>
+                        </ul>
+                        <div class="faq-tip">
+                            <strong>💡 Best Experience:</strong> For optimal performance, we recommend using Google Chrome on desktop with at least 4GB RAM.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is my data secure and private?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Yes, your scripts and data are completely secure.</strong></p>
+                        <p><strong>Our privacy measures:</strong></p>
+                        <ul>
+                            <li><strong>Local processing:</strong> Much of the processing happens in your browser</li>
+                            <li><strong>No storage:</strong> We don't store your scripts on our servers</li>
+                            <li><strong>Encrypted transmission:</strong> All data uses HTTPS encryption</li>
+                            <li><strong>No tracking:</strong> We don't track or analyze your script content</li>
+                            <li><strong>Temporary processing:</strong> Server processing is temporary and immediately deleted</li>
+                        </ul>
+                        <p><strong>What we collect:</strong></p>
+                        <ul>
+                            <li>Anonymous usage statistics (page views, feature usage)</li>
+                            <li>Technical data for error reporting</li>
+                            <li>No personal information or script content</li>
+                        </ul>
+                        <p>Read our full <a href="/privacy-policy">Privacy Policy</a> for complete details.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Does the tool work offline?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>No,</strong> Veo 3 Script Writer requires an internet connection to function.</p>
+                        <p><strong>Why internet is needed:</strong></p>
+                        <ul>
+                            <li>AI processing happens on our servers</li>
+                            <li>Advanced dialogue detection requires cloud AI</li>
+                            <li>Character consistency generation uses machine learning models</li>
+                            <li>Visual description generation needs computational power</li>
+                        </ul>
+                        <p><strong>Minimum connection requirements:</strong></p>
+                        <ul>
+                            <li>Stable internet connection (broadband, 4G, or 5G)</li>
+                            <li>Minimum 1 Mbps download/upload speed</li>
+                            <li>Lower speeds may work but could be slower</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I use this tool via API?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Not currently,</strong> but an API is in development.</p>
+                        <p><strong>Current status:</strong></p>
+                        <ul>
+                            <li>API is planned for Q1 2026</li>
+                            <li>Will support RESTful endpoints</li>
+                            <li>Authentication via API keys</li>
+                            <li>Rate limits to ensure fair usage</li>
+                        </ul>
+                        <p><strong>Use cases we're planning for:</strong></p>
+                        <ul>
+                            <li>Integration with video editing software</li>
+                            <li>Automated content production pipelines</li>
+                            <li>Custom workflow automation</li>
+                            <li>Batch processing of multiple scripts</li>
+                        </ul>
+                        <p>Interested in API access? <a href="/contact">Contact us</a> to join the waitlist and influence development priorities.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What happens if generation fails?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If script generation fails, here's what happens:</p>
+                        <p><strong>Automatic handling:</strong></p>
+                        <ul>
+                            <li>Clear error message explains what went wrong</li>
+                            <li>Your input script is preserved (not lost)</li>
+                            <li>Suggestions provided to fix the issue</li>
+                            <li>Option to retry with one click</li>
+                        </ul>
+                        <p><strong>Common causes and solutions:</strong></p>
+                        <ul>
+                            <li><strong>No dialogues detected:</strong> Add clear dialogue indicators</li>
+                            <li><strong>Too many scenes (>38):</strong> Split script into parts</li>
+                            <li><strong>Network timeout:</strong> Check internet connection and retry</li>
+                            <li><strong>Server overload:</strong> Wait 1-2 minutes and try again</li>
+                        </ul>
+                        <p>If problems persist, <a href="/contact">contact our support team</a> with details about the error.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Troubleshooting Section -->
+            <section class="faq-section" data-category="troubleshooting">
+                <h2 class="faq-section-title">
+                    <i class="fas fa-tools"></i>
+                    Troubleshooting & Support
+                </h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Why isn't my dialogue being detected?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If dialogue isn't being detected, try these solutions:</p>
+                        <p><strong>1. Check your dialogue formatting:</strong></p>
+                        <ul>
+                            <li>Add quotation marks: John says "Hello there"</li>
+                            <li>Use dialogue verbs: Sarah replies "Nice to meet you"</li>
+                            <li>Include character names: Mike asks "How are you?"</li>
+                        </ul>
+                        <p><strong>2. Improve script clarity:</strong></p>
+                        <ul>
+                            <li>Separate action from dialogue</li>
+                            <li>Use new lines for each speaker</li>
+                            <li>Avoid ambiguous phrasing</li>
+                        </ul>
+                        <p><strong>3. Examples that work well:</strong></p>
+                        <div class="faq-tip">
+                            <strong>✅ Good:</strong> John walks into the room. He says "I have something to tell you."<br>
+                            <strong>❌ Avoid:</strong> John walks into the room and has something to tell her
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>My generated script seems inconsistent. What should I do?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If generated scripts have inconsistencies, follow these steps:</p>
+                        <p><strong>1. Add character descriptions manually:</strong></p>
+                        <ul>
+                            <li>Open Settings → Characters tab</li>
+                            <li>Write detailed descriptions for each main character</li>
+                            <li>Include physical features, clothing, and props</li>
+                            <li>Be specific and consistent in your descriptions</li>
+                        </ul>
+                        <p><strong>2. Review environment settings:</strong></p>
+                        <ul>
+                            <li>Specify primary setting clearly</li>
+                            <li>Include lighting and time of day</li>
+                            <li>Mention any important environmental details</li>
+                        </ul>
+                        <p><strong>3. Use consistent visual style:</strong></p>
+                        <ul>
+                            <li>Select a visual style in Settings</li>
+                            <li>Keep the same style for entire project</li>
+                            <li>Avoid mixing drastically different styles</li>
+                        </ul>
+                        <p><strong>4. Regenerate with improvements:</strong></p>
+                        <ul>
+                            <li>Make the above adjustments</li>
+                            <li>Click Generate again</li>
+                            <li>Results should be more consistent</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>The tool is running slowly. How can I speed it up?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Performance optimization tips:</strong></p>
+                        <p><strong>1. Reduce script complexity:</strong></p>
+                        <ul>
+                            <li>Process scripts in smaller chunks (10-20 scenes)</li>
+                            <li>Remove unnecessary characters or subplots</li>
+                            <li>Simplify overly complex scene descriptions</li>
+                        </ul>
+                        <p><strong>2. Browser optimization:</strong></p>
+                        <ul>
+                            <li>Close unnecessary tabs and applications</li>
+                            <li>Clear browser cache and cookies</li>
+                            <li>Update to latest browser version</li>
+                            <li>Disable resource-heavy extensions temporarily</li>
+                        </ul>
+                        <p><strong>3. Connection improvements:</strong></p>
+                        <ul>
+                            <li>Use wired connection instead of WiFi when possible</li>
+                            <li>Close bandwidth-heavy applications (streaming, downloads)</li>
+                            <li>Test during off-peak hours if persistent</li>
+                        </ul>
+                        <p><strong>Typical generation times:</strong></p>
+                        <ul>
+                            <li>Short script (5-10 scenes): 5-10 seconds</li>
+                            <li>Medium script (15-25 scenes): 15-25 seconds</li>
+                            <li>Long script (30-38 scenes): 25-40 seconds</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I report a bug or issue?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We appreciate bug reports! Here's how to report effectively:</p>
+                        <p><strong>1. Gather information:</strong></p>
+                        <ul>
+                            <li>What were you trying to do?</li>
+                            <li>What happened instead?</li>
+                            <li>Any error messages you saw?</li>
+                            <li>Your browser and operating system</li>
+                        </ul>
+                        <p><strong>2. Include details:</strong></p>
+                        <ul>
+                            <li>Screenshot of the error (if visible)</li>
+                            <li>Sample of the script you were using (if relevant)</li>
+                            <li>Steps to reproduce the issue</li>
+                            <li>Time and date when it occurred</li>
+                        </ul>
+                        <p><strong>3. Send your report:</strong></p>
+                        <ul>
+                            <li>Email: <a href="mailto:raogyy@gmail.com">raogyy@gmail.com</a></li>
+                            <li>Subject line: "Bug Report: [Brief Description]"</li>
+                            <li>We typically respond within 24-48 hours</li>
+                        </ul>
+                        <div class="faq-tip">
+                            <strong>💡 Tip:</strong> The more detail you provide, the faster we can identify and fix the issue!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Where can I get additional help or support?</h3>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer multiple support channels:</p>
+                        <p><strong>1. Documentation & Tutorials:</strong></p>
+                        <ul>
+                            <li><a href="/tutorials">Tutorial Library</a> - Step-by-step guides</li>
+                            <li><a href="/blog">Blog Articles</a> - Tips and best practices</li>
+                            <li>Video tutorials (coming soon)</li>
+                        </ul>
+                        <p><strong>2. Direct Support:</strong></p>
+                        <ul>
+                            <li><strong>Email:</strong> <a href="mailto:raogyy@gmail.com">raogyy@gmail.com</a></li>
+                            <li><strong>Response time:</strong> 24-48 hours (weekdays)</li>
+                            <li><strong>Support hours:</strong> Monday-Friday, 9 AM - 5 PM EST</li>
+                        </ul>
+                        <p><strong>3. Self-Help Resources:</strong></p>
+                        <ul>
+                            <li>This FAQ page (bookmark it!)</li>
+                            <li><a href="/about">About page</a> - Tool overview and capabilities</li>
+                            <li>In-app tooltips and hints</li>
+                        </ul>
+                        <p><strong>4. Community (Coming Soon):</strong></p>
+                        <ul>
+                            <li>User forum for peer support</li>
+                            <li>Share scripts and tips</li>
+                            <li>Feature requests and voting</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <div class="faq-cta">
+                <h2>Still Have Questions?</h2>
+                <p>Can't find the answer you're looking for? Our support team is here to help!</p>
+                <div class="faq-cta-buttons">
+                    <a href="/contact" class="faq-cta-btn">
+                        <i class="fas fa-envelope"></i>
+                        Contact Support
+                    </a>
+                    <a href="/tutorials" class="faq-cta-btn secondary">
+                        <i class="fas fa-graduation-cap"></i>
+                        View Tutorials
+                    </a>
+                    <a href="/" class="faq-cta-btn secondary">
+                        <i class="fas fa-play"></i>
+                        Try the Tool
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>RAOGY</h3>
+                    <p>Professional AI Tools for Creators</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/"><i class="fas fa-home"></i> Home</a>
+                    <a href="/privacy-policy"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                    <a href="/terms-of-service"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                    <a href="/cookie-policy"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
+                    <a href="/disclaimer"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a>
+                    <a href="/sitemap"><i class="fas fa-sitemap"></i> Sitemap</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 RAOGY. All rights reserved. Professional AI Tools for Content Creators.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTopBtn">
+        <i class="fas fa-arrow-up"></i>
+        <span>Top</span>
+    </button>
+
+    <script src="/config.js"></script>
+    <script src="/script.js"></script>
+    <script>
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            const searchInput = document.getElementById('faqSearch');
+            const categoryBtns = document.querySelectorAll('.faq-category-btn');
+            const sections = document.querySelectorAll('.faq-section');
+            
+            // Accordion toggle
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const wasActive = item.classList.contains('active');
+                    
+                    // Close all items
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    
+                    // Open clicked item if it wasn't active
+                    if (!wasActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+            
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                    
+                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Show/hide sections based on visible items
+                sections.forEach(section => {
+                    const visibleItems = section.querySelectorAll('.faq-item[style="display: block"]');
+                    section.style.display = visibleItems.length > 0 || searchTerm === '' ? 'block' : 'none';
+                });
+            });
+            
+            // Category filter
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show/hide sections
+                    if (category === 'all') {
+                        sections.forEach(section => section.style.display = 'block');
+                    } else {
+                        sections.forEach(section => {
+                            section.style.display = section.dataset.category === category ? 'block' : 'none';
+                        });
+                    }
+                    
+                    // Reset search
+                    searchInput.value = '';
+                    faqItems.forEach(item => item.style.display = 'block');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

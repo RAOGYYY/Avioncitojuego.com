@@ -96,7 +96,7 @@ a:hover {
 .header {
     background: var(--bg-primary);
     border-radius: var(--radius-lg);
-    padding: var(--space-md);
+    padding: 0.75rem var(--space-md);
     margin-bottom: var(--space-xl);
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
@@ -652,6 +652,7 @@ a:hover {
 }
 
 .brand-tagline {
+    display: none; /* Hidden for compact header */
     font-size: 0.75rem;
     color: var(--text-secondary);
     margin: 0.2rem 0 0 0;
@@ -664,6 +665,7 @@ a:hover {
     align-items: center;
     gap: 0.5rem;
     flex-shrink: 0;
+    flex-wrap: wrap;
 }
 
 .about-btn, .header-link {
@@ -682,6 +684,33 @@ a:hover {
     gap: 0.3rem;
     white-space: nowrap;
     min-height: 36px;
+}
+
+/* Desktop: show text, mobile: icons only */
+@media (min-width: 769px) {
+    .header-link span {
+        display: inline;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-link span {
+        display: none;
+    }
+    
+    .header-link {
+        padding: 0.5rem !important;
+        width: 36px;
+        height: 36px;
+    }
+    
+    .header-link i {
+        font-size: 1rem;
+    }
+    
+    .header-controls {
+        gap: 0.4rem;
+    }
 }
 
 /* Dark mode improvements for header links */
@@ -9362,35 +9391,41 @@ body.dark-theme .theme-toggle:hover {
         display: block !important;
     }
     
+    /* Header controls optimized for many links */
     .header-controls {
         display: flex !important;
         justify-content: flex-end !important;
-        flex-wrap: nowrap !important;
-        gap: 0.35rem !important;
+        flex-wrap: wrap !important;
+        gap: 0.3rem !important;
         flex-shrink: 0;
+        width: 100%;
     }
     
     .header-link,
     .about-btn {
-        padding: 0.4rem 0.5rem !important;
-        font-size: 0.7rem !important;
-        min-height: 30px !important;
+        padding: 0.45rem !important;
+        font-size: 0 !important; /* Hide text on small mobile */
+        min-height: 32px !important;
+        min-width: 32px !important;
+        width: 32px;
+        height: 32px;
         white-space: nowrap;
     }
     
     .header-link span,
     .about-btn span {
-        font-size: 0.7rem !important;
+        display: none !important; /* Hide text labels on small mobile */
     }
     
     .header-link i {
-        font-size: 0.8rem !important;
+        font-size: 0.95rem !important;
+        margin: 0 !important;
     }
     
     .theme-toggle {
-        width: 30px !important;
-        height: 30px !important;
-        min-height: 30px !important;
+        width: 32px !important;
+        height: 32px !important;
+        min-height: 32px !important;
         padding: 0 !important;
     }
     
@@ -9536,6 +9571,55 @@ body.dark-theme .theme-toggle:hover {
     
     .scroll-to-top i {
         font-size: 0.85rem !important;
+    }
+}
+
+/* Tablet optimization (481px - 768px) - Show icons with minimal text */
+@media (min-width: 481px) and (max-width: 768px) {
+    .header-controls {
+        gap: 0.4rem !important;
+    }
+    
+    .header-link,
+    .about-btn {
+        padding: 0.45rem 0.55rem !important;
+        font-size: 0.75rem !important;
+        min-height: 34px !important;
+        width: auto;
+        height: auto;
+    }
+    
+    .header-link span,
+    .about-btn span {
+        display: inline !important;
+        font-size: 0.7rem !important;
+    }
+    
+    .header-link i {
+        font-size: 0.85rem !important;
+    }
+    
+    .theme-toggle {
+        width: 34px !important;
+        height: 34px !important;
+    }
+}
+
+/* Desktop optimization (769px+) - Show full text */
+@media (min-width: 769px) {
+    .header-controls {
+        gap: 0.6rem !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    .header-link,
+    .about-btn {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .header-link span {
+        display: inline !important;
     }
 }
 
