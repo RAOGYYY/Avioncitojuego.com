@@ -181,20 +181,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Configuration (loaded from window.APP_CONFIG populated by config.js/env.js)
+    // Configuration - Uses secure Vercel serverless API route
     const CONFIG = (typeof window !== 'undefined' && window.APP_CONFIG) ? window.APP_CONFIG : {
         // Gemini 2.0 Flash Lite Configuration (Latest & Optimized)
         projectId: 'theta-arcana-468817-t3',
         locationId: 'global',
-        apiEndpoint: 'generativelanguage.googleapis.com',
         modelId: 'gemini-2.0-flash-lite-001',
-        generateContentApi: 'generateContent',
         
-        // API Key for authentication (required for browser-based access)
-        geminiApiKey: 'AIzaSyAr5w5GjLarr7EuN4c_nqYuzZ1Zz926s1g', // Your actual API key
-        
-        // Standard Gemini API URL for Gemini 2.0 Flash Lite (works in browsers)
-        geminiApiUrl: 'https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash-lite-001:generateContent',
+        // Secure API route (API key is stored on server via Vercel environment variables)
+        apiRoute: '/api/gemini',
         
         // Application settings
         maxScriptLength: 15000,
@@ -239,13 +234,11 @@ document.addEventListener('DOMContentLoaded', function() {
         initialize() {
             console.log('🚀 Initializing StoryboardGeneratorTool...');
             console.log('📋 CONFIG loaded:', CONFIG);
-            console.log('🔑 API Key present:', !!CONFIG.geminiApiKey);
             console.log('🤖 Model ID:', CONFIG.modelId);
-            console.log('🔗 Full API URL:', CONFIG.geminiApiUrl);
+            console.log('🔗 Secure API Route:', CONFIG.apiRoute);
 
             // Initialize vertical mode functionality
             this.initializeVerticalMode();
-            console.log('🌐 API URL:', CONFIG.geminiApiUrl);
             
             this.setupEventListeners();
             this.setupScrollBehavior();
@@ -1061,53 +1054,35 @@ Example: Sarah: 25-year-old journalist, blonde hair, casual"
         }
 
         async validateApiConnection() {
-            console.log('🔍 Starting API validation...');
-            console.log('🔑 API Key:', CONFIG.geminiApiKey ? 'Present' : 'Missing');
-            console.log('🔑 API Key length:', CONFIG.geminiApiKey ? CONFIG.geminiApiKey.length : 0);
-            console.log('🔑 API Key starts with:', CONFIG.geminiApiKey ? CONFIG.geminiApiKey.substring(0, 10) + '...' : 'N/A');
-            console.log('🌐 API URL:', CONFIG.geminiApiUrl);
-            
-            if (!CONFIG.geminiApiKey || CONFIG.geminiApiKey === '') {
-                console.error('❌ API Key is missing!');
-                return this.updateApiStatus('error', 'API Key Missing');
-            }
-
-            // Check if API key format looks correct
-            if (!CONFIG.geminiApiKey.startsWith('AIza')) {
-                console.warn('⚠️ API Key format may be incorrect. Expected to start with "AIza"');
-            }
+            console.log('🔍 Starting API validation via secure route...');
+            console.log('🌐 API Route:', CONFIG.apiRoute);
 
             try {
                 this.updateApiStatus('connecting', 'Connecting');
-                console.log('🔄 Attempting API connection...');
+                console.log('🔄 Attempting API connection via secure Vercel route...');
                 
                 // Test with a simple prompt to validate the API connection
-                const testPrompt = 'Hello, this is a test connection to Gemini 2.0 Flash Lite. Please respond with "Connection successful."';
+                const testPrompt = 'Hello, respond with exactly: Connection successful.';
                 console.log('📝 Test prompt:', testPrompt);
                 
-                const response = await this.generateGeminiContent(testPrompt, { maxOutputTokens: 10 });
+                const response = await this.generateGeminiContent(testPrompt, { maxOutputTokens: 50 });
                 console.log('✅ API response received:', response);
                 
-                if (response && response.includes('successful')) {
+                if (response) {
                     this.updateApiStatus('connected', 'Live');
-                    console.log('✅ Gemini 2.0 Flash Lite connection successful');
+                    console.log('✅ Secure API connection successful');
                 } else {
-                    throw new Error('Unexpected response format');
+                    throw new Error('Empty response received');
                 }
             } catch (error) {
                 this.updateApiStatus('error', 'Connection Failed');
-                console.error("❌ Gemini 2.0 Flash Lite API Connection Error:", error);
+                console.error("❌ API Connection Error:", error);
                 console.error("🔍 Error details:", {
                     message: error.message,
                     stack: error.stack,
-                    config: {
-                        apiKey: CONFIG.geminiApiKey ? 'Present' : 'Missing',
-                        apiKeyLength: CONFIG.geminiApiKey ? CONFIG.geminiApiKey.length : 0,
-                        apiKeyPrefix: CONFIG.geminiApiKey ? CONFIG.geminiApiKey.substring(0, 10) + '...' : 'N/A',
-                        apiUrl: CONFIG.geminiApiUrl
-                    }
+                    apiRoute: CONFIG.apiRoute
                 });
-                this.showToast('Gemini 2.0 Flash Lite API connection failed. Check console for details.', 'error');
+                this.showToast('API connection failed. Check console for details.', 'error');
             }
         }
 
@@ -1937,110 +1912,21 @@ Return ONLY the valid JSON object with enhanced Veo 3-optimized prompts. Do NOT 
         }
 
         async generateGeminiContent(prompt, options = {}) {
-            console.log('🚀 Making Gemini API request...');
+            console.log('🚀 Making Gemini API request via secure Vercel route...');
             console.log('📝 Prompt:', prompt);
             console.log('⚙️ Options:', options);
-            console.log('🔑 API Key length:', CONFIG.geminiApiKey ? CONFIG.geminiApiKey.length : 0);
-            console.log('🌐 API URL:', CONFIG.geminiApiUrl);
+            console.log('🌐 API Route:', CONFIG.apiRoute);
             
             const requestBody = {
-                contents: [{
-                    parts: [{ text: prompt }]
-                }],
-                generationConfig: {
-                    maxOutputTokens: options.maxOutputTokens || 8192,
-                    temperature: 0.7,
-                    topP: 0.95,
-                    topK: 40
-                }
+                prompt: prompt,
+                model: CONFIG.modelId
             };
             
             console.log('📦 Request body:', requestBody);
-            const fullUrl = `${CONFIG.geminiApiUrl}?key=${CONFIG.geminiApiKey}`;
-            console.log('🔗 Full URL:', fullUrl);
 
             try {
-                console.log('🔄 Sending fetch request...');
-                const response = await fetch(fullUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(requestBody)
-            });
-
-                console.log('📡 Response status:', response.status, response.statusText);
-                console.log('📡 Response headers:', Object.fromEntries(response.headers.entries()));
-
-            if (!response.ok) {
-                const errorText = await response.text();
-                    console.error('❌ API Error Response:', errorText);
-                    
-                    // If Gemini 2.0 Flash Lite fails, try Gemini 1.5 Pro as fallback
-                    if (response.status === 400 || response.status === 404) {
-                        console.log('🔄 Trying fallback to Gemini 1.5 Pro...');
-                        return await this.generateGeminiContentFallback(prompt, options);
-                    }
-                    
-                throw new Error(`API request failed: ${response.statusText}. Details: ${errorText}`);
-            }
-
-            const data = await response.json();
-                console.log('📥 Response data:', data);
-            
-            // Handle standard Gemini response format
-            if (data.candidates && data.candidates[0]) {
-                    const result = data.candidates[0].content.parts[0].text;
-                    console.log('✅ API call successful, result:', result);
-                    return result;
-            } else {
-                    console.error('❌ Unexpected response format:', data);
-                throw new Error('Unexpected API response format');
-                }
-            } catch (error) {
-                console.error('❌ Fetch error:', error);
-                console.error('❌ Error type:', error.constructor.name);
-                console.error('❌ Error message:', error.message);
-                
-                // Check if it's a CORS error
-                if (error.message.includes('CORS') || error.message.includes('cross-origin')) {
-                    console.error('❌ CORS error detected - this might be a browser security issue');
-                }
-                
-                // Check if it's a network error
-                if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
-                    console.error('❌ Network error detected - check internet connection');
-                }
-                
-                // Try fallback if it's a model-specific error
-                if (error.message.includes('400') || error.message.includes('404')) {
-                    console.log('🔄 Trying fallback to Gemini 1.5 Pro...');
-                    return await this.generateGeminiContentFallback(prompt, options);
-                }
-                
-                throw error;
-            }
-        }
-
-        // Fallback to Gemini 1.5 Pro if 2.0 Flash Lite fails
-        async generateGeminiContentFallback(prompt, options = {}) {
-            console.log('🔄 Using Gemini 1.5 Pro fallback...');
-            
-            const fallbackUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent';
-            const fullUrl = `${fallbackUrl}?key=${CONFIG.geminiApiKey}`;
-            
-            const requestBody = {
-                contents: [{
-                    parts: [{ text: prompt }]
-                }],
-                generationConfig: {
-                    maxOutputTokens: options.maxOutputTokens || 8192,
-                    temperature: 0.7,
-                }
-            };
-
-            try {
-                const response = await fetch(fullUrl, {
+                console.log('🔄 Sending fetch request to secure API route...');
+                const response = await fetch(CONFIG.apiRoute, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -2048,27 +1934,41 @@ Return ONLY the valid JSON object with enhanced Veo 3-optimized prompts. Do NOT 
                     body: JSON.stringify(requestBody)
                 });
 
+                console.log('📡 Response status:', response.status, response.statusText);
+
                 if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`Fallback API request failed: ${response.statusText}. Details: ${errorText}`);
+                    const errorData = await response.json().catch(() => ({ error: response.statusText }));
+                    console.error('❌ API Error Response:', errorData);
+                    throw new Error(errorData.error || `API request failed: ${response.statusText}`);
                 }
 
                 const data = await response.json();
-                
+                console.log('📥 Response data:', data);
+            
+                // Handle standard Gemini response format
                 if (data.candidates && data.candidates[0]) {
                     const result = data.candidates[0].content.parts[0].text;
-                    console.log('✅ Fallback API call successful with Gemini 1.5 Pro');
-                    // Update status to show just "Live" when using fallback
-                    this.updateApiStatus('connected', 'Live');
+                    console.log('✅ API call successful, result:', result);
                     return result;
                 } else {
-                    throw new Error('Unexpected fallback API response format');
+                    console.error('❌ Unexpected response format:', data);
+                    throw new Error('Unexpected API response format');
                 }
             } catch (error) {
-                console.error('❌ Fallback API also failed:', error);
+                console.error('❌ Fetch error:', error);
+                console.error('❌ Error type:', error.constructor.name);
+                console.error('❌ Error message:', error.message);
+                
+                // Check if it's a network error
+                if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+                    console.error('❌ Network error detected - check internet connection');
+                }
+                
                 throw error;
             }
         }
+
+        // Note: Fallback logic is now handled by the secure Vercel API route (/api/gemini)
 
         displayStoryboard(data) {
             const consistentContainer = document.getElementById('consistentPromptsContainer');
