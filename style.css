@@ -10106,4 +10106,223 @@ body.dark-theme .theme-toggle:hover {
     }
 }
 
+/* ========================================
+   Demo Section Mobile Responsiveness
+   ======================================== */
+
+/* Demo Section Responsive Styles */
+@media (max-width: 900px) {
+    .demo-container {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .demo-arrow {
+        flex-direction: row !important;
+        padding: 10px !important;
+    }
+    
+    .demo-arrow > div {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .demo-arrow i {
+        transform: rotate(90deg);
+    }
+    
+    .demo-before,
+    .demo-after {
+        padding: 18px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .why-choose-section {
+        padding: 40px 15px !important;
+    }
+    
+    .why-choose-header h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .why-card {
+        padding: 20px !important;
+    }
+    
+    .demo-section {
+        padding: 40px 15px !important;
+    }
+    
+    .demo-header h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .demo-before div,
+    .demo-after div {
+        font-size: 0.8rem !important;
+        padding: 15px !important;
+    }
+}
+
+/* Dark mode support for new sections */
+[data-theme="dark"] .why-choose-section {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+}
+
+[data-theme="dark"] .why-card {
+    background: var(--bg-secondary) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .why-card h3 {
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .why-card p {
+    color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .demo-before {
+    background: #2d1f1f !important;
+    border-color: #5c3a3a !important;
+}
+
+[data-theme="dark"] .demo-after {
+    background: #1f2d1f !important;
+    border-color: #3a5c3a !important;
+}
+
+[data-theme="dark"] .demo-before > div:last-child,
+[data-theme="dark"] .demo-after > div:last-child {
+    background: var(--bg-secondary) !important;
+    color: #e2e8f0 !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Use Cases Section Mobile Styles */
+@media (max-width: 600px) {
+    .use-cases-section {
+        padding: 40px 15px !important;
+    }
+    
+    .use-cases-header h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .use-cases-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .use-case-card {
+        padding: 20px !important;
+    }
+}
+
+/* Footer Mobile Styles */
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 15px 15px !important;
+    }
+    
+    .footer-content > div:first-child {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        text-align: center;
+    }
+    
+    .footer-brand > div {
+        justify-content: center !important;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* CTA Button Hover Effect */
+a[href="#userInput"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5) !important;
+}
+
+/* ========================================
+   Footer Trust Badges Styling
+   ======================================== */
+
+.footer-trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 0;
+    margin: 20px 0 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.trust-badge i {
+    color: var(--success);
+    font-size: 1rem;
+}
+
+.trust-badge span {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.trust-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--success);
+}
+
+/* Dark mode trust badges */
+[data-theme="dark"] .trust-badge {
+    background: var(--bg-tertiary);
+    border-color: #475569;
+}
+
+[data-theme="dark"] .trust-badge:hover {
+    border-color: var(--success);
+}
+
+/* Mobile responsive trust badges */
+@media (max-width: 600px) {
+    .footer-trust-badges {
+        gap: 12px;
+        padding: 15px 0;
+    }
+    
+    .trust-badge {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .trust-badge i {
+        font-size: 0.9rem;
+    }
+    
+    .trust-badge span {
+        font-size: 0.8rem;
+    }
+}
+
 /* Container */
