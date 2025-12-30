@@ -1082,7 +1082,7 @@ Example: Sarah: 25-year-old journalist, blonde hair, casual"
                     stack: error.stack,
                     apiRoute: CONFIG.apiRoute
                 });
-                this.showToast('API connection failed. Check console for details.', 'error');
+                // this.showToast('API connection failed. Check console for details.', 'error');
             }
         }
 
