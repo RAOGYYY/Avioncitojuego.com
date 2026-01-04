@@ -64,8 +64,20 @@ export default async function handler(req, res) {
             });
         }
 
-        // Return successful response
-        return res.status(200).json(data);
+        // Convert Groq response to Gemini-compatible format
+        // This allows the frontend to work without changes
+        const geminiCompatibleResponse = {
+            candidates: [{
+                content: {
+                    parts: [{
+                        text: data.choices[0].message.content
+                    }]
+                }
+            }]
+        };
+
+        // Return Gemini-compatible response
+        return res.status(200).json(geminiCompatibleResponse);
 
     } catch (error) {
         console.error('Server error:', error);

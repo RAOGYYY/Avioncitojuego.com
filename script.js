@@ -183,13 +183,13 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     // Configuration - Uses secure Vercel serverless API route
     const CONFIG = (typeof window !== 'undefined' && window.APP_CONFIG) ? window.APP_CONFIG : {
-        // Gemini 2.0 Flash Lite Configuration (Latest & Optimized)
+        // Groq API Configuration (Fast & Free)
         projectId: 'theta-arcana-468817-t3',
         locationId: 'global',
-        modelId: 'gemini-2.0-flash-lite-001',
+        modelId: 'llama-3.3-70b-versatile',
         
         // Secure API route (API key is stored on server via Vercel environment variables)
-        apiRoute: '/api/gemini',
+        apiRoute: '/api/groq',
         
         // Application settings
         maxScriptLength: 15000,
