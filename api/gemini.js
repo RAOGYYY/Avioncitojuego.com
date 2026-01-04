@@ -35,8 +35,8 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: 'Prompt is required' });
         }
 
-        // Use the model specified or default to gemini-2.0-flash-lite
-        const modelId = model || 'gemini-2.0-flash-lite-001';
+        // Use the model specified or default to gemini-2.5-flash
+        const modelId = model || 'gemini-2.5-flash';
         const geminiUrl = `https://generativelanguage.googleapis.com/v1/models/${modelId}:generateContent?key=${apiKey}`;
 
         // Call Gemini API

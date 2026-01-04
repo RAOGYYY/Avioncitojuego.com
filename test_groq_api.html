@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groq API Test - Fast AI Text Generation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .api-status {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .status-checking {
+            background: #fff3cd;
+            color: #856404;
+            border: 2px solid #ffeaa7;
+        }
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .info-box strong {
+            color: #1976D2;
+        }
+        .info-box a {
+            color: #1976D2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .info-box a:hover {
+            text-decoration: underline;
+        }
+        .test-section {
+            margin-top: 30px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 100px;
+            transition: border-color 0.3s;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #f5576c;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #f5576c;
+        }
+        button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .response-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #f5576c;
+            display: none;
+        }
+        .response-box.show {
+            display: block;
+        }
+        .response-box h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .response-text {
+            line-height: 1.6;
+            color: #555;
+            white-space: pre-wrap;
+        }
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #f5576c;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+        .loader.show {
+            display: block;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .speed-info {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+        .speed-info.show {
+            display: block;
+        }
+        .speed-info strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ Groq API Test Tool</h1>
+            <p>Lightning-fast AI text generation with Groq</p>
+        </div>
+        
+        <div class="content">
+            <div id="apiStatus" class="api-status status-checking">
+                🔍 Ready to test API key...
+            </div>
+
+            <div class="info-box">
+                <strong>🎯 Get Your Free Groq API Key:</strong><br>
+                1. Visit <a href="https://console.groq.com/keys" target="_blank">https://console.groq.com/keys</a><br>
+                2. Sign up (free, no credit card required)<br>
+                3. Create a new API key<br>
+                4. Paste it below and test!<br><br>
+                <strong>Free Tier:</strong> 30 requests/min, 14,400 requests/day
+            </div>
+
+            <div class="test-section">
+                <div class="input-group">
+                    <label for="apiKeyInput">Enter your Groq API Key:</label>
+                    <input 
+                        type="text" 
+                        id="apiKeyInput" 
+                        placeholder="gsk_..."
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="promptInput">Enter your prompt:</label>
+                    <textarea 
+                        id="promptInput" 
+                        placeholder="Example: Write a short script about a flying game..."
+                    >Write a creative script for a simple airplane game where the player avoids obstacles.</textarea>
+                </div>
+
+                <button id="generateBtn" onclick="generateText()">
+                    ⚡ Generate Text (Fast!)
+                </button>
+
+                <div class="loader" id="loader"></div>
+
+                <div class="speed-info" id="speedInfo"></div>
+
+                <div class="response-box" id="responseBox">
+                    <h3>📝 Generated Response:</h3>
+                    <div class="response-text" id="responseText"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function generateText() {
+            const apiKeyInput = document.getElementById('apiKeyInput');
+            const promptInput = document.getElementById('promptInput');
+            const generateBtn = document.getElementById('generateBtn');
+            const loader = document.getElementById('loader');
+            const responseBox = document.getElementById('responseBox');
+            const responseText = document.getElementById('responseText');
+            const apiStatus = document.getElementById('apiStatus');
+            const speedInfo = document.getElementById('speedInfo');
+
+            const apiKey = apiKeyInput.value.trim();
+            const prompt = promptInput.value.trim();
+            
+            if (!apiKey) {
+                apiStatus.className = 'api-status status-error';
+                apiStatus.innerHTML = '❌ Please enter your Groq API key';
+                return;
+            }
+
+            if (!prompt) {
+                apiStatus.className = 'api-status status-error';
+                apiStatus.innerHTML = '❌ Please enter a prompt';
+                return;
+            }
+
+            generateBtn.disabled = true;
+            loader.classList.add('show');
+            responseBox.classList.remove('show');
+            speedInfo.classList.remove('show');
+            apiStatus.className = 'api-status status-checking';
+            apiStatus.innerHTML = '⚡ Generating... (Groq is super fast!)';
+
+            const startTime = Date.now();
+
+            try {
+                const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${apiKey}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        model: 'llama-3.3-70b-versatile',
+                        messages: [
+                            {
+                                role: 'user',
+                                content: prompt
+                            }
+                        ],
+                        max_tokens: 2048,
+                        temperature: 0.7,
+                    })
+                });
+
+                const endTime = Date.now();
+                const duration = ((endTime - startTime) / 1000).toFixed(2);
+
+                const data = await response.json();
+
+                if (response.ok && data.choices && data.choices[0]) {
+                    const generatedText = data.choices[0].message.content;
+                    const tokens = data.usage?.completion_tokens || 0;
+                    const tokensPerSecond = tokens > 0 ? (tokens / duration).toFixed(1) : 'N/A';
+
+                    responseText.textContent = generatedText;
+                    responseBox.classList.add('show');
+                    
+                    apiStatus.className = 'api-status status-success';
+                    apiStatus.innerHTML = '✅ API Key is WORKING! Groq is blazing fast! 🚀';
+
+                    speedInfo.innerHTML = `
+                        <strong>⚡ Performance:</strong><br>
+                        Response time: ${duration}s | 
+                        Tokens: ${tokens} | 
+                        Speed: ${tokensPerSecond} tokens/sec
+                    `;
+                    speedInfo.classList.add('show');
+                } else {
+                    const errorMsg = data.error?.message || 'Failed to generate text';
+                    responseText.textContent = `Error: ${errorMsg}`;
+                    responseBox.classList.add('show');
+                    
+                    apiStatus.className = 'api-status status-error';
+                    apiStatus.innerHTML = `❌ API Error: ${errorMsg}`;
+                }
+            } catch (error) {
+                responseText.textContent = `Error: ${error.message}`;
+                responseBox.classList.add('show');
+                
+                apiStatus.className = 'api-status status-error';
+                apiStatus.innerHTML = `❌ Connection Error: ${error.message}`;
+            } finally {
+                generateBtn.disabled = false;
+                loader.classList.remove('show');
+            }
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('promptInput').addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                generateText();
+            }
+        });
+    </script>
+</body>
+</html>
