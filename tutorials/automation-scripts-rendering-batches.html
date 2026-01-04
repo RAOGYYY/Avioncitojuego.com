@@ -282,6 +282,24 @@
             <p>Complete guide to automated rendering workflows with failure tracking and job resumption</p>
         </div>
 
+        <!-- Table of Contents -->
+        <div class="toc-container">
+            <div class="toc-header" onclick="toggleTOC()">
+                <h3 class="toc-title"><i class="fas fa-list-ul"></i> Table of Contents</h3>
+                <button class="toc-toggle" id="tocToggle"><i class="fas fa-chevron-up"></i></button>
+            </div>
+            <ul class="toc-list" id="tocList">
+                <li><a href="#step1"><i class="fas fa-chevron-right"></i> Why Automation Matters</a></li>
+                <li><a href="#step2"><i class="fas fa-chevron-right"></i> Understanding the Basics</a></li>
+                <li><a href="#step3"><i class="fas fa-chevron-right"></i> Setting Up Your First Script</a></li>
+                <li><a href="#step4"><i class="fas fa-chevron-right"></i> Advanced Features</a></li>
+                <li><a href="#step5"><i class="fas fa-chevron-right"></i> Common Pitfalls</a></li>
+                <li><a href="#step6"><i class="fas fa-chevron-right"></i> Real-World Example</a></li>
+                <li><a href="#step7"><i class="fas fa-chevron-right"></i> Tools and Resources</a></li>
+                <li><a href="#step8"><i class="fas fa-chevron-right"></i> Best Practices</a></li>
+            </ul>
+        </div>
+
         <div class="progress-tracker">
             <div class="progress-info">
                 <span>Tutorial Progress</span>
@@ -296,7 +314,7 @@
             <strong>About the Author:</strong> This guide is written by experienced 3D artists and technical directors who have implemented rendering automation pipelines in professional studios. With over 10 years of combined experience in VFX and animation production, we share practical solutions that work in real-world scenarios.
         </div>
 
-        <div class="tutorial-step" data-step="1">
+        <div class="tutorial-step" data-step="1" id="step1">
             <h2><span class="step-number">1</span>Why Automation Matters for Rendering</h2>
             <p>If you've ever spent hours babysitting your computer while it renders scenes one by one, you know the pain of manual rendering. Whether you're a freelance 3D artist working on client projects or part of a studio team handling hundreds of shots, rendering can eat up valuable time that could be spent on creative work.</p>
 
@@ -323,7 +341,7 @@
             <p>Think about it this way: if you have 50 scenes to render for a project, manually opening each file, hitting render, waiting for it to finish, then moving to the next one could take days of your active time. With automation, you can queue all 50 scenes, start the process, and come back when everything's done. The script handles everything in between.</p>
         </div>
 
-        <div class="tutorial-step" data-step="2">
+        <div class="tutorial-step" data-step="2" id="step2">
             <h2><span class="step-number">2</span>Understanding the Basics: What These Scripts Do</h2>
             <p>Before we dive into the technical stuff, let's break down what a good automation script does in simple terms. It's really just three main things:</p>
 
@@ -360,7 +378,7 @@
             </div>
         </div>
 
-        <div class="tutorial-step" data-step="3">
+        <div class="tutorial-step" data-step="3" id="step3">
             <h2><span class="step-number">3</span>Setting Up Your First Automation Script</h2>
             <p>You don't need to be a programmer to get started with rendering automation. Most 3D software like Blender, Maya, 3ds Max, and Cinema 4D support scripting in languages like Python, which is relatively beginner-friendly.</p>
 
@@ -406,7 +424,7 @@
             </div>
         </div>
 
-        <div class="tutorial-step" data-step="4">
+        <div class="tutorial-step" data-step="4" id="step4">
             <h2><span class="step-number">4</span>Advanced Features: Taking Automation Further</h2>
             <p>Once you've got basic automation working, there are several advanced features worth exploring:</p>
 
@@ -453,7 +471,7 @@
             </ul>
         </div>
 
-        <div class="tutorial-step" data-step="5">
+        <div class="tutorial-step" data-step="5" id="step5">
             <h2><span class="step-number">5</span>Common Pitfalls and How to Avoid Them</h2>
             <p>Even with automation, things can go wrong. Here are the most common issues and how to prevent them:</p>
 
@@ -490,7 +508,7 @@
             </div>
         </div>
 
-        <div class="tutorial-step" data-step="6">
+        <div class="tutorial-step" data-step="6" id="step6">
             <h2><span class="step-number">6</span>Real-World Example: A Day in the Life</h2>
             <p>Let me paint you a picture of how this works in practice. Say you're a freelance motion designer with a project that includes 75 scenes to render.</p>
 
@@ -506,7 +524,7 @@
             </div>
         </div>
 
-        <div class="tutorial-step" data-step="7">
+        <div class="tutorial-step" data-step="7" id="step7">
             <h2><span class="step-number">7</span>Tools and Software-Specific Resources</h2>
             <p>Depending on your 3D software, different tools are available:</p>
 
@@ -528,7 +546,7 @@
             </div>
         </div>
 
-        <div class="tutorial-step" data-step="8">
+        <div class="tutorial-step" data-step="8" id="step8">
             <h2><span class="step-number">8</span>Best Practices for Long-Term Success</h2>
             <p>To make automation work consistently over time, follow these professional practices:</p>
 
@@ -577,6 +595,18 @@
             </div>        <div style="text-align: center; margin-top: 40px;">
             <p><strong>Congratulations!</strong> You now have the knowledge to implement professional rendering automation workflows. The techniques described here are based on real-world production experience and can be adapted to your specific needs and technical environment.</p>
             <a href="/tutorials" style="display: inline-block; background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; margin-top: 20px;">Back to Tutorials</a>
+        </div>
+
+        <!-- Social Sharing - End of Tutorial -->
+        <div class="social-share-container" style="margin-top: 40px;">
+            <div class="social-share-title"><i class="fas fa-share-alt"></i> Share this tutorial</div>
+            <div class="social-share-buttons">
+                <a href="https://twitter.com/intent/tweet?url=https://www.avioncitojuego.com/tutorials/automation-scripts-rendering-batches.html&text=Automation Scripts Tutorial" target="_blank" rel="noopener" class="social-share-btn twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.avioncitojuego.com/tutorials/automation-scripts-rendering-batches.html" target="_blank" rel="noopener" class="social-share-btn facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.avioncitojuego.com/tutorials/automation-scripts-rendering-batches.html&title=Automation Scripts" target="_blank" rel="noopener" class="social-share-btn linkedin"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+                <a href="https://api.whatsapp.com/send?text=Automation Scripts https://www.avioncitojuego.com/tutorials/automation-scripts-rendering-batches.html" target="_blank" rel="noopener" class="social-share-btn whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+                <button onclick="copyPageLink()" class="social-share-btn copy-link"><i class="fas fa-link"></i><span>Copy Link</span></button>
+            </div>
         </div>
     </main>
 

@@ -2857,3 +2857,145 @@ Return ONLY the valid JSON object with enhanced Veo 3-optimized prompts. Do NOT 
         });
     }
 });
+
+// ========================================
+// Table of Contents (TOC) Functions
+// ========================================
+
+function toggleTOC() {
+    const tocList = document.getElementById('tocList');
+    const tocToggle = document.getElementById('tocToggle');
+    
+    if (tocList && tocToggle) {
+        const isHidden = tocList.style.display === 'none';
+        tocList.style.display = isHidden ? 'block' : 'none';
+        tocToggle.innerHTML = isHidden ? '<i class="fas fa-chevron-up"></i>' : '<i class="fas fa-chevron-down"></i>';
+    }
+}
+
+// ========================================
+// Social Sharing Functions
+// ========================================
+
+function copyPageLink() {
+    const url = window.location.href;
+    
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+            showCopyNotification('Link copied to clipboard!');
+        }).catch(() => {
+            fallbackCopyToClipboard(url);
+        });
+    } else {
+        fallbackCopyToClipboard(url);
+    }
+}
+
+function fallbackCopyToClipboard(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    document.body.appendChild(textArea);
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        showCopyNotification('Link copied to clipboard!');
+    } catch (err) {
+        showCopyNotification('Failed to copy link');
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+function showCopyNotification(message) {
+    // Remove existing notification if any
+    const existingNotification = document.querySelector('.copy-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'copy-notification';
+    notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+    notification.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        animation: slideUp 0.3s ease-out;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideDown 0.3s ease-out';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Add CSS animations for notifications
+const notificationStyles = document.createElement('style');
+notificationStyles.textContent = `
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(-50%) translateY(20px);
+        }
+    }
+`;
+document.head.appendChild(notificationStyles);
+
+// ========================================
+// Reading Progress Bar
+// ========================================
+
+function initReadingProgress() {
+    const progressBar = document.querySelector('.reading-progress');
+    if (!progressBar) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        progressBar.style.width = `${Math.min(progress, 100)}%`;
+    });
+}
+
+// Initialize reading progress on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReadingProgress);
+} else {
+    initReadingProgress();
+}

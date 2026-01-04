@@ -86,10 +86,34 @@ a:hover {
 }
 
 .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    padding-bottom: 120px; /* Space for footer */
+}
+
+/* Page container for blog/tutorial articles */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    padding-bottom: 120px;
+}
+
+/* Article container for blog posts */
+.article-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.article-content {
     max-width: 900px;
     margin: 0 auto;
-    padding: var(--space-md);
-    padding-bottom: 120px; /* Space for footer */
+    padding: var(--space-xl);
 }
 
 /* Header */
@@ -10323,6 +10347,421 @@ a[href="#userInput"]:hover {
     .trust-badge span {
         font-size: 0.8rem;
     }
+}
+
+/* ========================================
+   Table of Contents (TOC) Styles
+   ======================================== */
+
+.toc-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin: var(--space-xl) 0;
+    box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .toc-container {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-color: #475569;
+}
+
+.toc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+    cursor: pointer;
+}
+
+.toc-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+}
+
+.toc-title i {
+    font-size: 1rem;
+}
+
+.toc-toggle {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    transition: all var(--transition);
+    color: var(--text-secondary);
+}
+
+.toc-toggle:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-list li {
+    margin-bottom: 0.5rem;
+}
+
+.toc-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all var(--transition);
+    font-size: 0.95rem;
+    border-left: 2px solid transparent;
+}
+
+.toc-list a:hover {
+    background: rgba(99, 102, 241, 0.1);
+    border-left-color: var(--primary);
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+.toc-list a i {
+    color: var(--primary);
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.toc-list .toc-h3 {
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   Social Sharing Buttons Styles
+   ======================================== */
+
+.social-share-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin: var(--space-xl) 0;
+    text-align: center;
+}
+
+[data-theme="dark"] .social-share-container {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-color: #475569;
+}
+
+.social-share-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.social-share-title i {
+    color: var(--primary);
+}
+
+.social-share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.social-share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.social-share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    color: white !important;
+}
+
+.social-share-btn:hover span {
+    color: white !important;
+}
+
+.social-share-btn.twitter {
+    background: linear-gradient(135deg, #1da1f2, #0d8ecf);
+}
+
+.social-share-btn.twitter:hover {
+    background: linear-gradient(135deg, #0d8ecf, #1da1f2);
+}
+
+.social-share-btn.facebook {
+    background: linear-gradient(135deg, #4267B2, #365899);
+}
+
+.social-share-btn.facebook:hover {
+    background: linear-gradient(135deg, #365899, #4267B2);
+}
+
+.social-share-btn.linkedin {
+    background: linear-gradient(135deg, #0077b5, #005885);
+}
+
+.social-share-btn.linkedin:hover {
+    background: linear-gradient(135deg, #005885, #0077b5);
+}
+
+.social-share-btn.whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.social-share-btn.whatsapp:hover {
+    background: linear-gradient(135deg, #128C7E, #25D366);
+}
+
+.social-share-btn.reddit {
+    background: linear-gradient(135deg, #FF4500, #cc3700);
+}
+
+.social-share-btn.reddit:hover {
+    background: linear-gradient(135deg, #cc3700, #FF4500);
+}
+
+.social-share-btn.copy-link {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.social-share-btn.copy-link:hover {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+}
+
+.social-share-btn i {
+    font-size: 1rem;
+}
+
+/* Mobile responsive social buttons */
+@media (max-width: 600px) {
+    .social-share-buttons {
+        gap: 0.5rem;
+    }
+    
+    .social-share-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .social-share-btn span {
+        display: none;
+    }
+    
+    .social-share-btn i {
+        font-size: 1.1rem;
+    }
+}
+
+/* ========================================
+   Premium UI Enhancements
+   ======================================== */
+
+/* Enhanced card hover effects */
+.blog-card, .tutorial-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-card:hover, .tutorial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+}
+
+/* Premium gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Enhanced section styling */
+.premium-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #667eea);
+    background-size: 300% 100%;
+    animation: gradientMove 3s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Author box styling */
+.author-box {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin: var(--space-xl) 0;
+}
+
+[data-theme="dark"] .author-box {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-color: #475569;
+}
+
+.author-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.author-info h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.author-info p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Reading progress bar */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    z-index: 10000;
+    transition: width 0.1s ease;
+}
+
+/* Breadcrumb styling */
+.article-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.article-breadcrumb a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.article-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    color: var(--text-secondary);
+}
+
+/* Related posts section */
+.related-posts {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin: var(--space-xl) 0;
+}
+
+.related-posts h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+}
+
+.related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+}
+
+.related-post-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    transition: all var(--transition);
+}
+
+.related-post-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.related-post-card h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.related-post-card h4 a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.related-post-card h4 a:hover {
+    color: var(--primary);
+}
+
+.related-post-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
 }
 
 /* Container */

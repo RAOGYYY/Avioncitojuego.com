@@ -321,6 +321,24 @@
                 <p>Last Updated: October 2025 | Reading Time: 8 minutes | Expert Guide for Content Creators</p>
             </div>
 
+            <!-- Table of Contents -->
+            <div class="toc-container">
+                <div class="toc-header" onclick="toggleTOC()">
+                    <h3 class="toc-title"><i class="fas fa-list-ul"></i> Table of Contents</h3>
+                    <button class="toc-toggle" id="tocToggle"><i class="fas fa-chevron-up"></i></button>
+                </div>
+                <ul class="toc-list" id="tocList">
+                    <li><a href="#system-prompts"><i class="fas fa-chevron-right"></i> What Are System Prompts</a></li>
+                    <li><a href="#slot-tokens"><i class="fas fa-chevron-right"></i> Understanding Slot Tokens</a></li>
+                    <li><a href="#character-consistency"><i class="fas fa-chevron-right"></i> Character Consistency</a></li>
+                    <li><a href="#camera-movements"><i class="fas fa-chevron-right"></i> Camera Movements</a></li>
+                    <li><a href="#workflow"><i class="fas fa-chevron-right"></i> Practical Workflow</a></li>
+                    <li><a href="#challenges"><i class="fas fa-chevron-right"></i> Common Challenges</a></li>
+                    <li><a href="#best-practices"><i class="fas fa-chevron-right"></i> Best Practices</a></li>
+                    <li><a href="#conclusion"><i class="fas fa-chevron-right"></i> Conclusion</a></li>
+                </ul>
+            </div>
+
             <p>Creating videos with consistent characters across multiple scenes has always been one of the biggest challenges for content creators, animators, and AI video enthusiasts. Imagine spending hours generating the perfect character in one scene, only to have them look completely different in the next frame. Frustrating, right?</p>
 
             <p>Thanks to recent advancements in AI video generation technology, we now have powerful tools called "system prompts" combined with "slot tokens" that solve this exact problem. These techniques allow you to maintain character consistency, control lighting conditions, manage costumes, and even direct camera movements across your entire video project. Learn more about <a href="https://deepmind.google/technologies/veo/" target="_blank" rel="nofollow noopener" style="color: #667eea; text-decoration: underline;">Google's Veo 3 AI video technology</a> from DeepMind.</p>
@@ -329,7 +347,7 @@
                 <img src="/images/character-consistency-comparison.webp" alt="Comparison showing same character maintained consistently across multiple video scenes using system prompts and slot tokens">
             </div>
 
-            <h2>What Are System Prompts for Video Generation?</h2>
+            <h2 id="system-prompts">What Are System Prompts for Video Generation?</h2>
 
             <p>Think of system prompts as the master instructions you give to an AI video generator before it starts creating your content. Unlike regular prompts that describe individual scenes, system prompts set up rules and guidelines that apply to your entire video project.</p>
 
@@ -339,7 +357,7 @@
                 <p><strong>Why This Matters:</strong> Traditional AI video generation treats each scene independently, which often results in characters changing appearance, lighting shifting randomly, or camera angles becoming inconsistent. System prompts solve this by establishing persistent memory across your entire project.</p>
             </div>
 
-            <h2>Understanding Slot Tokens: The Secret to Consistency</h2>
+            <h2 id="slot-tokens">Understanding Slot Tokens: The Secret to Consistency</h2>
 
             <p>Slot tokens are like labeled containers where you store specific information that needs to stay consistent throughout your video. Instead of repeating the same descriptions over and over, you define something once in a slot token and reference it whenever needed.</p>
 
@@ -357,7 +375,7 @@
                 <li><strong>Technical Slots:</strong> Control lighting conditions, camera angles, movement styles, and cinematography preferences</li>
             </ol>
 
-            <h2>How to Use Slot Tokens for Character Consistency</h2>
+            <h2 id="character-consistency">How to Use Slot Tokens for Character Consistency</h2>
 
             <p>Let's break down how you can practically implement slot tokens to maintain perfect character consistency across your multi-scene video project:</p>
 
@@ -403,7 +421,7 @@
                 <img src="/images/lighting-conditions-comparison.webp" alt="Side by side comparison of the same character under different lighting conditions managed by slot tokens">
             </div>
 
-            <h2>Managing Camera Movements with Slot Tokens</h2>
+            <h2 id="camera-movements">Managing Camera Movements with Slot Tokens</h2>
 
             <p>Camera movement consistency is just as important as character consistency for creating professional-looking videos. Slot tokens for camera work help you maintain a coherent visual style throughout your project.</p>
 
@@ -421,7 +439,7 @@
 
             <p>By defining these camera behaviors in your system prompt, you can ensure that action scenes all share the same energetic camera style, while dialogue scenes maintain their calmer approach.</p>
 
-            <h2>Practical Workflow: Putting It All Together</h2>
+            <h2 id="workflow">Practical Workflow: Putting It All Together</h2>
 
             <p>Now that you understand the individual components, let's walk through a practical workflow for creating a multi-scene video with consistent characters:</p>
 
@@ -442,7 +460,7 @@
                 <img src="/images/workflow-video-creation.webp" alt="Flowchart showing the step by step process of using system prompts and slot tokens for multi-scene video creation">
             </div>
 
-            <h2>Common Challenges and How to Overcome Them</h2>
+            <h2 id="challenges">Common Challenges and How to Overcome Them</h2>
 
             <h3>Problem: Character Features Still Change Between Scenes</h3>
 
@@ -460,7 +478,7 @@
                 <p><strong>Time-Saving Tip:</strong> Create a personal library of your most-used tokens. Build a document with your successful character descriptions, favorite lighting setups, and reliable camera movements. This library becomes invaluable for future projects.</p>
             </div>
 
-            <h2>Best Practices for Maximum Consistency</h2>
+            <h2 id="best-practices">Best Practices for Maximum Consistency</h2>
 
             <p>After working with system prompts and slot tokens across numerous projects, here are the techniques that deliver the best results:</p>
 
@@ -495,7 +513,7 @@
 
             <p>As these systems improve, creating professional-quality multi-scene videos with perfect character consistency will become even more accessible to individual creators and small teams.</p>
 
-            <h2>Conclusion: Mastering Consistency for Professional Results</h2>
+            <h2 id="conclusion">Conclusion: Mastering Consistency for Professional Results</h2>
 
             <p>System prompts combined with slot tokens represent a fundamental shift in how we create AI-generated videos. By understanding and properly implementing these tools, you can achieve the kind of character and environmental consistency that was previously only possible with traditional animation or live-action filming.</p>
 
@@ -512,6 +530,18 @@
 
         <div style="text-align: center; margin-top: 40px;">
             <a href="/tutorials" style="display: inline-block; background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; margin-top: 20px;">Back to Tutorials</a>
+        </div>
+
+        <!-- Social Sharing - End of Tutorial -->
+        <div class="social-share-container" style="margin-top: 40px;">
+            <div class="social-share-title"><i class="fas fa-share-alt"></i> Share this tutorial</div>
+            <div class="social-share-buttons">
+                <a href="https://twitter.com/intent/tweet?url=https://www.avioncitojuego.com/tutorials/system-prompts-character-consistency.html&text=System Prompts Tutorial" target="_blank" rel="noopener" class="social-share-btn twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.avioncitojuego.com/tutorials/system-prompts-character-consistency.html" target="_blank" rel="noopener" class="social-share-btn facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.avioncitojuego.com/tutorials/system-prompts-character-consistency.html&title=System Prompts" target="_blank" rel="noopener" class="social-share-btn linkedin"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+                <a href="https://api.whatsapp.com/send?text=System Prompts https://www.avioncitojuego.com/tutorials/system-prompts-character-consistency.html" target="_blank" rel="noopener" class="social-share-btn whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+                <button onclick="copyPageLink()" class="social-share-btn copy-link"><i class="fas fa-link"></i><span>Copy Link</span></button>
+            </div>
         </div>
     </main>
 

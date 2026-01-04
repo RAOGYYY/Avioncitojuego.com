@@ -155,6 +155,25 @@
 
             <!-- Article Content -->
             <div class="article-content">
+                <!-- Table of Contents -->
+                <div class="toc-container">
+                    <div class="toc-header" onclick="toggleTOC()">
+                        <h3 class="toc-title"><i class="fas fa-list-ul"></i> Table of Contents</h3>
+                        <button class="toc-toggle" id="tocToggle"><i class="fas fa-chevron-up"></i></button>
+                    </div>
+                    <ul class="toc-list" id="tocList">
+                        <li><a href="#why-mobile-ai"><i class="fas fa-chevron-right"></i> Why Mobile AI Apps Matter</a></li>
+                        <li><a href="#voice-assistants"><i class="fas fa-chevron-right"></i> Voice Assistants</a></li>
+                        <li><a href="#photo-editing"><i class="fas fa-chevron-right"></i> AI Photo Editing Tools</a></li>
+                        <li><a href="#writing-aids"><i class="fas fa-chevron-right"></i> AI Writing Aids</a></li>
+                        <li><a href="#learning-tools"><i class="fas fa-chevron-right"></i> AI Learning Tools</a></li>
+                        <li><a href="#productivity"><i class="fas fa-chevron-right"></i> AI Productivity Apps</a></li>
+                        <li><a href="#privacy"><i class="fas fa-chevron-right"></i> Privacy Considerations</a></li>
+                        <li><a href="#free-tiers"><i class="fas fa-chevron-right"></i> Maximizing Free Tiers</a></li>
+                        <li><a href="#ecosystem"><i class="fas fa-chevron-right"></i> Creating Your AI Ecosystem</a></li>
+                    </ul>
+                </div>
+
                 <section class="content-section">
         
         
@@ -164,7 +183,7 @@
         
         <p>This comprehensive guide will walk you through the best AI-powered mobile apps available today, organized by category, with specific installation instructions, privacy configuration recommendations, and practical tips for maximizing the free versions. Whether you're using an iPhone or an Android device, you'll discover how to transform your smartphone into a genuinely intelligent assistant that works for you around the clock.</p>
         
-        <h2>Why Mobile AI Apps Matter More Than Ever</h2>
+        <h2 id="why-mobile-ai">Why Mobile AI Apps Matter More Than Ever</h2>
         
         <div class="content-image"><img src="/images/mobile-ai-productivity-comparison-chart.webp" alt="Infographic comparing productivity with and without AI mobile apps showing time savings"></div>
         
@@ -176,7 +195,7 @@
         
         <p>The barrier to entry has also disappeared. Most powerful AI apps now offer genuinely useful free tiers, not just limited trial periods. You can build a complete AI assistant ecosystem on your phone without spending a penny, though understanding how to maximize these free versions requires some knowledge—which is exactly what this guide provides.</p>
         
-        <h2>Category 1: Voice Assistants That Actually Understand You</h2>
+        <h2 id="voice-assistants">Category 1: Voice Assistants That Actually Understand You</h2>
         
         <div class="content-image"><img src="/images/ai-voice-assistants-comparison-mobile.webp" alt="Split screen comparison of different AI voice assistants on mobile devices"></div>
         
@@ -220,7 +239,7 @@
             </div>
         </div>
         
-        <h2>Category 2: AI Photo Editing Tools That Rival Desktop Software</h2>
+        <h2 id="photo-editing">Category 2: AI Photo Editing Tools That Rival Desktop Software</h2>
         
         <div class="content-image"><img src="/images/mobile-ai-photo-editing-before-after.webp" alt="Before and after comparison of photos edited using mobile AI apps"></div>
         
@@ -262,7 +281,7 @@
             </div>
         </div>
         
-        <h2>Category 3: AI Writing Aids for Clear, Professional Communication</h2>
+        <h2 id="writing-aids">Category 3: AI Writing Aids for Clear, Professional Communication</h2>
         
         <div class="content-image"><img src="/images/ai-writing-assistant-mobile-keyboard.webp" alt="Mobile keyboard with AI writing suggestions and grammar corrections"></div>
         
@@ -315,7 +334,7 @@
             </div>
         </div>
         
-        <h2>Category 4: AI Learning Tools That Adapt to You</h2>
+        <h2 id="learning-tools">Category 4: AI Learning Tools That Adapt to You</h2>
         
         <div class="content-image"><img src="/images/mobile-ai-learning-apps-interface.webp" alt="Educational AI apps showing personalized learning dashboard on smartphone"></div>
         
@@ -359,7 +378,7 @@
             </div>
         </div>
         
-        <h2>Category 5: AI Productivity Apps That Organize Your Life</h2>
+        <h2 id="productivity">Category 5: AI Productivity Apps That Organize Your Life</h2>
         
         <div class="content-image"><img src="/images/ai-productivity-apps-mobile-dashboard.webp" alt="Collection of AI productivity apps showing task management and scheduling features"></div>
         
@@ -403,7 +422,7 @@
             </div>
         </div>
         
-        <h2>Privacy Considerations: Protecting Your Data While Using AI Apps</h2>
+        <h2 id="privacy">Privacy Considerations: Protecting Your Data While Using AI Apps</h2>
         
         <div class="content-image"><img src="/images/mobile-ai-privacy-settings-guide.webp" alt="Smartphone privacy settings screen showing AI app permissions and data controls"></div>
         
@@ -422,7 +441,7 @@
         
         <p><strong>Platform-level privacy settings:</strong> Both iOS and Android offer system-wide controls that apply across all apps. On iOS: Settings > Privacy & Security > review each category (Location Services, Contacts, Photos, Microphone, etc.) and restrict apps to "Ask Next Time" or "Never" where appropriate. On Android: Settings > Privacy > Permission Manager > review each permission type and adjust app-by-app.</p>
         
-        <h2>Maximizing Free Tiers: Strategic Approaches to Avoid Paid Subscriptions</h2>
+        <h2 id="free-tiers">Maximizing Free Tiers: Strategic Approaches to Avoid Paid Subscriptions</h2>
         
         <div class="content-image"><img src="/images/free-vs-premium-ai-apps-comparison.webp" alt="Comparison chart showing free tier features versus premium subscriptions for AI apps"></div>
         
@@ -457,7 +476,7 @@
             <p>This rotation provides professional-grade AI assistance across all categories without paying for any subscriptions.</p>
         </div>
         
-        <h2>Creating Your Personal AI Ecosystem: Step-by-Step Setup</h2>
+        <h2 id="ecosystem">Creating Your Personal AI Ecosystem: Step-by-Step Setup</h2>
         
         <div class="content-image"><img src="/images/smartphone-ai-ecosystem-setup-guide.webp" alt="Step-by-step visual guide showing organized smartphone home screen with AI apps"></div>
         
@@ -530,14 +549,23 @@
         
         <p>Start with one category that addresses your biggest pain point. Install those apps, configure them properly, use them consistently for two weeks. Then expand to the next category. Within a month, you'll have built a personal AI ecosystem that genuinely improves your daily life—all without spending anything beyond the phone you already own.</p>
         
-        </section>
+        <!-- Social Sharing - End of Article -->
+        <div class="social-share-container" style="margin-top: 40px;">
+            <div class="social-share-title"><i class="fas fa-share-alt"></i> Share this article</div>
+            <div class="social-share-buttons">
+                <a href="https://twitter.com/intent/tweet?url=https://www.avioncitojuego.com/blog/smartphone-ai-assistant-apps-guide.html&text=Smartphone AI Assistant Apps Guide" target="_blank" rel="noopener" class="social-share-btn twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.avioncitojuego.com/blog/smartphone-ai-assistant-apps-guide.html" target="_blank" rel="noopener" class="social-share-btn facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.avioncitojuego.com/blog/smartphone-ai-assistant-apps-guide.html&title=AI Assistant Apps Guide" target="_blank" rel="noopener" class="social-share-btn linkedin"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+                <a href="https://api.whatsapp.com/send?text=AI Assistant Apps Guide https://www.avioncitojuego.com/blog/smartphone-ai-assistant-apps-guide.html" target="_blank" rel="noopener" class="social-share-btn whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+                <button onclick="copyPageLink()" class="social-share-btn copy-link"><i class="fas fa-link"></i><span>Copy Link</span></button>
+            </div>
+        </div>
 
                 <section class="content-section">
                     <div class="author-note" style="background: var(--bg-tertiary); padding: 20px; border-radius: 8px; margin-top: 40px; font-style: italic; border-left: 4px solid var(--primary);">
             <strong>About the Author:</strong> This guide is based on extensive hands-on testing of over fifty AI mobile applications across both iOS and Android platforms throughout 2024-2025. All recommendations reflect genuine personal experience with the free versions of these apps in real-world daily use. Privacy recommendations are based on current policies as of December 2025, but users should always review privacy settings themselves as policies can change.
         </div>
                 </section>
-            </div>
 
             <!-- Author Footer -->
             <footer class="article-footer">

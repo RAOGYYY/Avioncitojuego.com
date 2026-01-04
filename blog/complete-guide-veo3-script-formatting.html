@@ -75,7 +75,26 @@
                 <img src="/images/veo3-script-formatting-guide.webp" alt="Veo 3 Script Formatting Guide" style="width: 100%; border-radius: 12px; margin: 30px 0;">
 
                 <div class="article-content" style="line-height: 1.8; color: var(--text-primary);">
-                    <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--text-primary);"><i class="fas fa-info-circle" style="color: #667eea;"></i> Understanding Veo 3's Requirements</h2>
+                    
+                    <!-- Table of Contents -->
+                    <div class="toc-container">
+                        <div class="toc-header" onclick="toggleTOC()">
+                            <h3 class="toc-title"><i class="fas fa-list-ul"></i> Table of Contents</h3>
+                            <button class="toc-toggle" id="tocToggle"><i class="fas fa-chevron-up"></i></button>
+                        </div>
+                        <ul class="toc-list" id="tocList">
+                            <li><a href="#requirements"><i class="fas fa-chevron-right"></i> Veo 3 Requirements</a></li>
+                            <li><a href="#five-elements"><i class="fas fa-chevron-right"></i> Five Elements of a Scene</a></li>
+                            <li><a href="#transformation"><i class="fas fa-chevron-right"></i> Script Transformation</a></li>
+                            <li><a href="#splitting"><i class="fas fa-chevron-right"></i> Splitting Long Dialogues</a></li>
+                            <li><a href="#consistency"><i class="fas fa-chevron-right"></i> Character Consistency</a></li>
+                            <li><a href="#cinematic"><i class="fas fa-chevron-right"></i> Cinematic Language</a></li>
+                            <li><a href="#mistakes"><i class="fas fa-chevron-right"></i> Common Mistakes</a></li>
+                            <li><a href="#conclusion"><i class="fas fa-chevron-right"></i> Conclusion</a></li>
+                        </ul>
+                    </div>
+
+                    <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--text-primary);" id="requirements"><i class="fas fa-info-circle" style="color: #667eea;"></i> Understanding Veo 3's Requirements</h2>
                     
                     <p>Google's Veo 3 is a powerful AI video generation tool, but it has specific requirements that many creators overlook. The most critical constraint is the <strong>95-character dialogue limit</strong> per scene. This isn't arbitrary—it's designed to ensure clear, natural-sounding speech synthesis.</p>
                     
@@ -86,7 +105,7 @@
                         <p style="margin-bottom: 0;">The 95-character limit includes spaces and punctuation. A sentence like "I need to talk to you about something really important right now" is exactly 65 characters—well within the limit. But add context and emotion, and you'll quickly exceed it.</p>
                     </div>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-list-ol" style="color: #667eea;"></i> The Five Elements of a Perfect Veo 3 Scene</h2>
+                    <h2 id="five-elements" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-list-ol" style="color: #667eea;"></i> The Five Elements of a Perfect Veo 3 Scene</h2>
                     
                     <img src="/images/veo3-scene-structure-diagram.webp" alt="Veo 3 Scene Structure Diagram" style="width: 100%; border-radius: 12px; margin: 20px 0;">
                     
@@ -131,7 +150,7 @@
                         <li>J-cut or L-cut (audio overlap)</li>
                     </ul>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-exchange-alt" style="color: #667eea;"></i> Before and After: Real Script Transformation</h2>
+                    <h2 id="transformation" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-exchange-alt" style="color: #667eea;"></i> Before and After: Real Script Transformation</h2>
                     
                     <img src="/images/veo3-dialogue-formatting-example.webp" alt="Veo 3 Dialogue Formatting Example" style="width: 100%; border-radius: 12px; margin: 20px 0;">
                     
@@ -160,7 +179,7 @@
 
                     <p>Notice how the long dialogue was split into two scenes, each under 95 characters. The visual descriptions were enhanced with cinematic details, and character consistency was maintained.</p>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-cut" style="color: #667eea;"></i> Techniques for Splitting Long Dialogues</h2>
+                    <h2 id="splitting" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-cut" style="color: #667eea;"></i> Techniques for Splitting Long Dialogues</h2>
                     
                     <p>When your dialogue exceeds 95 characters, you have several options:</p>
 
@@ -176,7 +195,7 @@
                     <h3>4. Condensation</h3>
                     <p>Sometimes the best solution is to say the same thing with fewer words. "I need to discuss something important with you" becomes "We need to talk."</p>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-users" style="color: #667eea;"></i> Character Consistency Across Scenes</h2>
+                    <h2 id="consistency" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-users" style="color: #667eea;"></i> Character Consistency Across Scenes</h2>
                     
                     <p>One of the biggest challenges with AI video generation is maintaining consistent character appearances. Here's how to solve it:</p>
 
@@ -196,7 +215,7 @@ CHARACTER: Detective Sarah Chen
 
                     <p>Include this reference in every scene prompt, or use our Veo 3 Script Writer tool which automatically maintains character consistency.</p>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-camera" style="color: #667eea;"></i> Cinematic Language for Better Results</h2>
+                    <h2 id="cinematic" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-camera" style="color: #667eea;"></i> Cinematic Language for Better Results</h2>
                     
                     <p>Using proper cinematography terminology helps Veo 3 understand exactly what you want:</p>
 
@@ -237,7 +256,7 @@ CHARACTER: Detective Sarah Chen
                         </tbody>
                     </table>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-exclamation-triangle" style="color: #667eea;"></i> Common Mistakes to Avoid</h2>
+                    <h2 id="mistakes" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-exclamation-triangle" style="color: #667eea;"></i> Common Mistakes to Avoid</h2>
                     
                     <ol style="margin-left: 20px;">
                         <li style="margin-bottom: 16px;"><strong>Exceeding the character limit:</strong> Always count your characters. Use tools that automatically enforce the 95-character limit.</li>
@@ -265,7 +284,7 @@ CHARACTER: Detective Sarah Chen
                         <a href="/" style="display: inline-block; background: white; color: #667eea; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600;">Try It Free <i class="fas fa-arrow-right"></i></a>
                     </div>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-book" style="color: #667eea;"></i> Conclusion</h2>
+                    <h2 id="conclusion" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-book" style="color: #667eea;"></i> Conclusion</h2>
                     
                     <p>Proper script formatting is the foundation of professional AI video generation. By understanding <a href="https://deepmind.google/technologies/veo/" target="_blank" rel="noopener noreferrer" style="color: #667eea;">Veo 3's requirements</a>—especially the 95-character dialogue limit—and applying cinematic principles to your visual descriptions, you'll create videos that stand out from the crowd.</p>
                     
@@ -278,6 +297,18 @@ CHARACTER: Detective Sarah Chen
                             <li style="margin-bottom: 12px;"><a href="/blog/10-Creative-Ways-to-Use-Veo-3.html" style="color: #667eea;"><i class="fas fa-arrow-right"></i> 10 Creative Ways to Use Veo 3 for Content Creation</a></li>
                             <li style="margin-bottom: 12px;"><a href="/blog/building-memorable-characters-video-content.html" style="color: #667eea;"><i class="fas fa-arrow-right"></i> Building Memorable Characters for Video Content</a></li>
                         </ul>
+                    </div>
+
+                    <!-- Social Sharing - End of Article -->
+                    <div class="social-share-container" style="margin-top: 40px;">
+                        <div class="social-share-title"><i class="fas fa-share-alt"></i> Share this article</div>
+                        <div class="social-share-buttons">
+                            <a href="https://twitter.com/intent/tweet?url=https://www.avioncitojuego.com/blog/complete-guide-veo3-script-formatting.html&text=Veo 3 Script Formatting Guide" target="_blank" rel="noopener" class="social-share-btn twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.avioncitojuego.com/blog/complete-guide-veo3-script-formatting.html" target="_blank" rel="noopener" class="social-share-btn facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.avioncitojuego.com/blog/complete-guide-veo3-script-formatting.html&title=Veo 3 Script Guide" target="_blank" rel="noopener" class="social-share-btn linkedin"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+                            <a href="https://api.whatsapp.com/send?text=Veo 3 Script Guide https://www.avioncitojuego.com/blog/complete-guide-veo3-script-formatting.html" target="_blank" rel="noopener" class="social-share-btn whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+                            <button onclick="copyPageLink()" class="social-share-btn copy-link"><i class="fas fa-link"></i><span>Copy Link</span></button>
+                        </div>
                     </div>
                 </div>
             </article>

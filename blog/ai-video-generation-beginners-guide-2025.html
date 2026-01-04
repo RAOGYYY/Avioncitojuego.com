@@ -65,6 +65,23 @@
 
                 <div class="article-content" style="line-height: 1.8; color: var(--text-primary);">
                     
+                    <!-- Table of Contents -->
+                    <div class="toc-container">
+                        <div class="toc-header" onclick="toggleTOC()">
+                            <h3 class="toc-title"><i class="fas fa-list-ul"></i> Table of Contents</h3>
+                            <button class="toc-toggle" id="tocToggle"><i class="fas fa-chevron-up"></i></button>
+                        </div>
+                        <ul class="toc-list" id="tocList">
+                            <li><a href="#what-is-ai"><i class="fas fa-chevron-right"></i> What Is AI Video Generation</a></li>
+                            <li><a href="#tools"><i class="fas fa-chevron-right"></i> Major AI Video Tools</a></li>
+                            <li><a href="#prompts"><i class="fas fa-chevron-right"></i> Writing Your First Prompt</a></li>
+                            <li><a href="#mistakes"><i class="fas fa-chevron-right"></i> Common Beginner Mistakes</a></li>
+                            <li><a href="#step-by-step"><i class="fas fa-chevron-right"></i> Step-by-Step Guide</a></li>
+                            <li><a href="#next-steps"><i class="fas fa-chevron-right"></i> Next Steps</a></li>
+                            <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        </ul>
+                    </div>
+
                     <div style="background: #e8f4fd; padding: 24px; border-radius: 12px; margin-bottom: 30px;">
                         <h3 style="margin-top: 0; color: #0066cc;"><i class="fas fa-bookmark"></i> What You'll Learn</h3>
                         <ul style="margin-bottom: 0;">
@@ -76,7 +93,7 @@
                         </ul>
                     </div>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-question-circle" style="color: #667eea;"></i> What Is AI Video Generation?</h2>
+                    <h2 id="what-is-ai" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-question-circle" style="color: #667eea;"></i> What Is AI Video Generation?</h2>
                     
                     <p>AI video generation is the process of creating video content using artificial intelligence. Instead of filming with cameras or animating frame-by-frame, you describe what you want in text (called a "prompt"), and the AI creates the video for you.</p>
                     
@@ -87,7 +104,7 @@
 
                     <p>The technology has improved dramatically. In 2023, AI videos were often blurry and unrealistic. By 2025, tools like <a href="https://deepmind.google/technologies/veo/" target="_blank" rel="noopener noreferrer" style="color: #667eea;">Google's Veo 3</a>, <a href="https://openai.com/sora" target="_blank" rel="noopener noreferrer" style="color: #667eea;">OpenAI's Sora</a>, and <a href="https://runwayml.com/" target="_blank" rel="noopener noreferrer" style="color: #667eea;">Runway</a> can create photorealistic videos with natural movement, proper physics, and even synchronized dialogue.</p>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-tools" style="color: #667eea;"></i> Major AI Video Tools in 2025</h2>
+                    <h2 id="tools" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-tools" style="color: #667eea;"></i> Major AI Video Tools in 2025</h2>
                     
                     <img src="/images/ai-video-tools-comparison-2025.webp" alt="AI Video Tools Comparison 2025" style="width: 100%; border-radius: 12px; margin: 20px 0;">
                     
@@ -127,7 +144,7 @@
                         </div>
                     </div>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-pen" style="color: #667eea;"></i> Writing Your First AI Video Prompt</h2>
+                    <h2 id="prompts" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-pen" style="color: #667eea;"></i> Writing Your First AI Video Prompt</h2>
                     
                     <p>The prompt is everything in AI video generation. A good prompt leads to great results; a vague prompt leads to disappointment.</p>
 
@@ -164,7 +181,7 @@
                         </p>
                     </div>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-exclamation-triangle" style="color: #667eea;"></i> 7 Common Beginner Mistakes</h2>
+                    <h2 id="mistakes" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-exclamation-triangle" style="color: #667eea;"></i> 7 Common Beginner Mistakes</h2>
 
                     <div style="margin: 30px 0;">
                         <div style="padding: 20px; border-bottom: 1px solid #eee;">
@@ -204,7 +221,7 @@
                         </div>
                     </div>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-list-ol" style="color: #667eea;"></i> Your First AI Video: Step-by-Step</h2>
+                    <h2 id="step-by-step" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-list-ol" style="color: #667eea;"></i> Your First AI Video: Step-by-Step</h2>
 
                     <img src="/images/first-ai-video-prompt-example.webp" alt="First AI Video Prompt Example" style="width: 100%; border-radius: 12px; margin: 20px 0;">
 
@@ -247,7 +264,7 @@
                         <p style="margin: 0;"><strong>Perfect (67 chars):</strong> "This is exactly what I needed. A quiet moment with good coffee."</p>
                     </div>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-rocket" style="color: #667eea;"></i> Next Steps: Growing Your Skills</h2>
+                    <h2 id="next-steps" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-rocket" style="color: #667eea;"></i> Next Steps: Growing Your Skills</h2>
 
                     <p>Once you've created your first video, here's how to level up:</p>
 
@@ -265,7 +282,7 @@
                         <a href="/" style="display: inline-block; background: white; color: #667eea; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600;">Start Creating <i class="fas fa-arrow-right"></i></a>
                     </div>
 
-                    <h2 style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-question" style="color: #667eea;"></i> Frequently Asked Questions</h2>
+                    <h2 id="faq" style="margin-top: 40px; margin-bottom: 20px;"><i class="fas fa-question" style="color: #667eea;"></i> Frequently Asked Questions</h2>
 
                     <div style="margin: 30px 0;">
                         <div style="padding: 20px; border-bottom: 1px solid #eee;">
@@ -293,6 +310,18 @@
                             <li style="margin-bottom: 12px;"><a href="/blog/ai-video-comparison-2025.html" style="color: #667eea;"><i class="fas fa-arrow-right"></i> AI Video Tools Comparison 2025</a></li>
                             <li style="margin-bottom: 12px;"><a href="/tutorials" style="color: #667eea;"><i class="fas fa-arrow-right"></i> View All Tutorials</a></li>
                         </ul>
+                    </div>
+
+                    <!-- Social Sharing - End of Article -->
+                    <div class="social-share-container" style="margin-top: 40px;">
+                        <div class="social-share-title"><i class="fas fa-share-alt"></i> Share this article</div>
+                        <div class="social-share-buttons">
+                            <a href="https://twitter.com/intent/tweet?url=https://www.avioncitojuego.com/blog/ai-video-generation-beginners-guide-2025.html&text=AI Video Generation Beginners Guide" target="_blank" rel="noopener" class="social-share-btn twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.avioncitojuego.com/blog/ai-video-generation-beginners-guide-2025.html" target="_blank" rel="noopener" class="social-share-btn facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.avioncitojuego.com/blog/ai-video-generation-beginners-guide-2025.html&title=AI Video Guide" target="_blank" rel="noopener" class="social-share-btn linkedin"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+                            <a href="https://api.whatsapp.com/send?text=AI Video Guide https://www.avioncitojuego.com/blog/ai-video-generation-beginners-guide-2025.html" target="_blank" rel="noopener" class="social-share-btn whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+                            <button onclick="copyPageLink()" class="social-share-btn copy-link"><i class="fas fa-link"></i><span>Copy Link</span></button>
+                        </div>
                     </div>
                 </div>
             </article>

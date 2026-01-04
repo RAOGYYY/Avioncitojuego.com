@@ -139,7 +139,25 @@
 
             <!-- Article Body -->
             <div class="article-content">
-                <section class="content-section">
+                <!-- Table of Contents -->
+                <div class="toc-container">
+                    <div class="toc-header" onclick="toggleTOC()">
+                        <h3 class="toc-title"><i class="fas fa-list-ul"></i> Table of Contents</h3>
+                        <button class="toc-toggle" id="tocToggle"><i class="fas fa-chevron-up"></i></button>
+                    </div>
+                    <ul class="toc-list" id="tocList">
+                        <li><a href="#understanding"><i class="fas fa-chevron-right"></i> Understanding AI Video Generation</a></li>
+                        <li><a href="#prompts"><i class="fas fa-chevron-right"></i> Prompt Engineering</a></li>
+                        <li><a href="#structure"><i class="fas fa-chevron-right"></i> Content Structure</a></li>
+                        <li><a href="#platforms"><i class="fas fa-chevron-right"></i> Platform Optimization</a></li>
+                        <li><a href="#quality"><i class="fas fa-chevron-right"></i> Quality Control</a></li>
+                        <li><a href="#integration"><i class="fas fa-chevron-right"></i> Workflow Integration</a></li>
+                        <li><a href="#legal"><i class="fas fa-chevron-right"></i> Legal Considerations</a></li>
+                        <li><a href="#future"><i class="fas fa-chevron-right"></i> Future-Proofing</a></li>
+                    </ul>
+                </div>
+
+                <section class="content-section" id="understanding">
                     <h2><i class="fas fa-brain"></i> Understanding AI Video Generation</h2>
                     <p>AI video generation platforms use machine learning models trained on vast datasets of video content. Understanding how these systems work is crucial for optimizing your content creation process.</p>
                     
@@ -157,7 +175,7 @@
                     </div>
                 </section>
 
-                <section class="content-section">
+                <section class="content-section" id="prompts">
                     <h2><i class="fas fa-edit"></i> Prompt Engineering Best Practices</h2>
                     <p>The quality of your AI-generated video largely depends on how well you structure your prompts. Effective prompt engineering is both an art and a science.</p>
                     
@@ -193,7 +211,7 @@
                     </div>
                 </section>
 
-                <section class="content-section">
+                <section class="content-section" id="structure">
                     <h2><i class="fas fa-layer-group"></i> Content Structure for AI Generation</h2>
                     <p>Organizing your content with AI generation in mind can significantly improve both efficiency and output quality.</p>
                     
@@ -242,7 +260,7 @@
                     </div>
                 </section>
 
-                <section class="content-section">
+                <section class="content-section" id="platforms">
                     <h2><i class="fas fa-tools"></i> Platform-Specific Optimization</h2>
                     <p>Different AI platforms have unique strengths and limitations. Understanding these differences helps you choose the right tool for each task.</p>
                     
@@ -276,7 +294,7 @@
                     </div>
                 </section>
 
-                <section class="content-section">
+                <section class="content-section" id="quality">
                     <h2><i class="fas fa-chart-line"></i> Quality Control and Optimization</h2>
                     <p>Maintaining consistent quality across AI-generated content requires systematic evaluation and optimization processes.</p>
                     
@@ -314,7 +332,7 @@
                     </div>
                 </section>
 
-                <section class="content-section">
+                <section class="content-section" id="integration">
                     <h2><i class="fas fa-puzzle-piece"></i> Integration with Traditional Workflows</h2>
                     <p>Successful AI video generation isn't about replacing traditional methods—it's about strategic integration that enhances your creative capabilities.</p>
                     
@@ -336,7 +354,7 @@
                     </div>
                 </section>
 
-                <section class="content-section">
+                <section class="content-section" id="legal">
                     <h2><i class="fas fa-shield-alt"></i> Legal and Ethical Considerations</h2>
                     <p>As AI-generated content becomes mainstream, understanding the legal and ethical implications is crucial for content creators.</p>
                     
@@ -362,7 +380,7 @@
                     </div>
                 </section>
 
-                <section class="content-section">
+                <section class="content-section" id="future">
                     <h2><i class="fas fa-crystal-ball"></i> Future-Proofing Your Workflow</h2>
                     <p>AI video generation technology evolves rapidly. Building adaptable workflows ensures you can leverage new capabilities as they emerge.</p>
                     
@@ -376,6 +394,18 @@
                         <li><strong>Creative Vision:</strong> Maintain strong storytelling focus regardless of tools</li>
                     </ul>
                 </section>
+
+                <!-- Social Sharing - End of Article -->
+                <div class="social-share-container" style="margin-top: 40px;">
+                    <div class="social-share-title"><i class="fas fa-share-alt"></i> Share this article</div>
+                    <div class="social-share-buttons">
+                        <a href="https://twitter.com/intent/tweet?url=https://www.avioncitojuego.com/blog/optimizing-video-content-ai-generation-platforms.html&text=AI Video Optimization" target="_blank" rel="noopener" class="social-share-btn twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.avioncitojuego.com/blog/optimizing-video-content-ai-generation-platforms.html" target="_blank" rel="noopener" class="social-share-btn facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.avioncitojuego.com/blog/optimizing-video-content-ai-generation-platforms.html&title=AI Video Optimization" target="_blank" rel="noopener" class="social-share-btn linkedin"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+                        <a href="https://api.whatsapp.com/send?text=AI Video Optimization https://www.avioncitojuego.com/blog/optimizing-video-content-ai-generation-platforms.html" target="_blank" rel="noopener" class="social-share-btn whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+                        <button onclick="copyPageLink()" class="social-share-btn copy-link"><i class="fas fa-link"></i><span>Copy Link</span></button>
+                    </div>
+                </div>
             </div>
 
             <!-- Article Footer -->
